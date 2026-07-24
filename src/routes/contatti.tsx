@@ -10,22 +10,21 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/contatti")({
   head: () => ({
     meta: [
-      { title: "Contatti — Alessia Rossi Copywriter" },
-      { name: "description", content: "Contatta Alessia Rossi per un progetto di copywriting, brand voice o strategia editoriale. Rispondo entro 24 ore." },
-      { property: "og:title", content: "Contatti — Alessia Rossi Copywriter" },
-      { property: "og:description", content: "Contatta Alessia Rossi per un progetto di copywriting, brand voice o strategia editoriale." },
+      { title: "Contatti — Shamyo Singh Copywriter" },
+      { name: "description", content: "Contatta Shamyo Singh per un progetto di copywriting, SEO, content strategy o email marketing. Rispondo entro 24 ore." },
+      { property: "og:title", content: "Contatti — Shamyo Singh Copywriter" },
+      { property: "og:description", content: "Contatta Shamyo Singh per un progetto di copywriting, SEO, content strategy o email marketing." },
     ],
   }),
   component: ContactPage,
 });
 
 const services = [
-  "Brand Voice",
-  "Contenuti web",
-  "Copy pubblicitario",
-  "Email marketing",
-  "Content strategy",
-  "Revisione/editing",
+  "Copywriting Blog & Article Writing",
+  "SEO Audits & Content Optimization",
+  "AI-Assisted Content & Content Marketing",
+  "Landing Page Copywriting",
+  "Email Sales & Soap Opera Sequences",
   "Altro",
 ];
 
@@ -47,7 +46,7 @@ function ContactPage() {
   return (
     <>
       <section className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-28">
-        <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">Contatti</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contatti</p>
         <h1 className="mt-4 max-w-3xl font-heading text-4xl text-foreground sm:text-5xl lg:text-6xl">
           Raccontami il tuo progetto
         </h1>
@@ -62,7 +61,7 @@ function ContactPage() {
           <div className="rounded-3xl border border-border/60 bg-card/30 p-8 sm:p-10">
             {submitted ? (
               <div className="py-12 text-center">
-                <div className="mx-flex mx-auto h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <div className="mx-flex mx-auto h-12 w-12 items-center justify-center rounded-full bg-brand text-brand-foreground">
                   <Send className="mx-auto h-5 w-5" />
                 </div>
                 <h2 className="mt-6 font-heading text-2xl text-foreground">Messaggio inviato!</h2>
@@ -94,7 +93,7 @@ function ContactPage() {
                         onClick={() => toggleService(service)}
                         className={`rounded-full border px-4 py-2 text-sm transition-colors ${
                           selectedServices.includes(service)
-                            ? "border-primary bg-primary text-primary-foreground"
+                            ? "border-brand bg-brand text-brand-foreground"
                             : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
                         }`}
                       >
@@ -115,7 +114,7 @@ function ContactPage() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full rounded-full bg-primary py-6 text-sm font-medium text-primary-foreground hover:opacity-90"
+                  className="w-full rounded-full bg-brand py-6 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground hover:opacity-90"
                 >
                   Invia richiesta
                 </Button>
@@ -134,11 +133,11 @@ function ContactPage() {
               </div>
               <div className="space-y-6">
                 <a
-                  href="mailto:hello@alessiarossi.it"
+                  href="mailto:hello@shamyosingh.it"
                   className="flex items-center gap-4 text-foreground transition-opacity hover:opacity-70"
                 >
                   <Mail className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-base">hello@alessiarossi.it</span>
+                  <span className="text-base">hello@shamyosingh.it</span>
                 </a>
                 <a
                   href="tel:+393331234567"
@@ -150,7 +149,7 @@ function ContactPage() {
                 <div className="flex items-start gap-4 text-foreground">
                   <MapPin className="h-5 w-5 shrink-0 text-muted-foreground" />
                   <span className="text-base">
-                    Milano, Italia
+                    Palermo, Italia
                     <br />
                     <span className="text-sm text-muted-foreground">Lavoro con clienti in tutta Italia e all'estero.</span>
                   </span>
