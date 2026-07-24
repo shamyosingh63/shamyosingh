@@ -52,7 +52,7 @@ function ContactPage() {
           Raccontami il tuo progetto
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Compila il form o scrivimi diretta. Risponderò entro 24 ore lavorative con una proposta su misura.
+          Compila il form o scrivimi direttamente. Risponderò entro 24 ore lavorative con una proposta su misura.
         </p>
       </section>
 
