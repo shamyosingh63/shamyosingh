@@ -4,10 +4,10 @@ import { ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Alessia Rossi Copywriter" },
-      { name: "description", content: "Portfolio di copywriting: brand voice, landing page, campagne pubblicitarie, contenuti web e strategia editoriale per clienti italiani e internazionali." },
-      { property: "og:title", content: "Portfolio — Alessia Rossi Copywriter" },
-      { property: "og:description", content: "Portfolio di copywriting: brand voice, landing page, campagne pubblicitarie, contenuti web e strategia editoriale." },
+      { title: "Portfolio — Shamyo Singh Copywriter" },
+      { name: "description", content: "Portfolio di copywriting, SEO, content strategy, landing page e email marketing per clienti come Save the Children, Tecnocasa, Fenice Academy e altri." },
+      { property: "og:title", content: "Portfolio — Shamyo Singh Copywriter" },
+      { property: "og:description", content: "Portfolio di copywriting, SEO, content strategy, landing page e email marketing." },
     ],
   }),
   component: PortfolioPage,
@@ -15,52 +15,52 @@ export const Route = createFileRoute("/portfolio")({
 
 const projects = [
   {
-    client: "Bottega Verde",
-    category: "Brand Voice",
-    title: "Raccontare la bellezza naturale",
+    client: "Save the Children",
+    category: "SEO Content & Copywriting",
+    title: "Contenuti che fanno la differenza",
     description:
-      "Definizione del tone of voice e revisione di tutti i testi del nuovo e-commerce. Obiettivo: rendere il brand più vicino, autentico e distintivo.",
-    result: "+18% tempo medio sul sito",
+      "Produzione di contenuti SEO e copywriting per campagne istituzionali. Obiettivo: raccontare il cambiamento sociale con parole chiare e coinvolgenti.",
+    result: "+45% traffico organico",
   },
   {
-    client: "FintechFlow",
-    category: "Landing Page",
-    title: "Semplificare il complesso",
+    client: "Tecnocasa",
+    category: "SEO Content",
+    title: "Contenuti che vendono immobili",
     description:
-      "Copy per la landing page di lancio di un'app di gestione finanziaria. Ho tradotto concetti tecnici in parole comprensibili e persuasive.",
-    result: "+34% conversioni",
+      "Ottimizzazione e creazione di contenuti SEO per il settore immobiliare, con focus su local search e intento d'acquisto.",
+    result: "+60% visibilità locale",
   },
   {
-    client: "Casa editrice Zeta",
-    category: "Social Copy",
-    title: "Vendere libri in tre righe",
+    client: "Fenice Academy",
+    category: "Landing Page, Email & Funnel",
+    title: "Landing page che convertiono",
     description:
-      "Creazione di copy per campagne social di lancio di nuove uscite editoriali, con un tono che rispetta l'identità di ogni autore.",
-    result: "+2.5x engagement",
+      "Copy per landing page di lancio, sequenze email e funnel di vendita per un'accademia di formazione digitale.",
+    result: "+32% tasso di conversione",
   },
   {
-    client: "Nuvola Software",
-    category: "Email Marketing",
-    title: "Email che si leggono davvero",
+    client: "Isola del Vento",
+    category: "Copywriting & Content Strategy",
+    title: "Raccontare un territorio",
     description:
-      "Riprogettazione del welcome flow e delle newsletter mensili. Più personalità, meno rumore, più aperture.",
-    result: "+42% open rate",
+      "Content strategy e copywriting per un brand legato al turismo e all'ospitalità, con focus su storytelling locale ed esperienze.",
+    result: "+2.8x engagement social",
   },
   {
-    client: "Osteria Al Ponte",
-    category: "Copy pubblicitario",
-    title: "Il sapore della tradizione",
+    client: "Lega Navale",
+    category: "Web Copy & SEO",
+    title: "Vela, mare e tradizione",
     description:
-      "Pay-off, menu e copy per campagna locale. Testi che raccontano persone, ingredienti e territorio.",
-    result: "Sold-out cene evento",
+      "Contenuti web e ottimizzazione SEO per una delle più antiche istituzioni nautiche italiane.",
+    result: "+38% traffico organico",
   },
   {
-    client: "Architetti Associati",
-    category: "Content Strategy",
-    title: "Dare voce allo spazio",
+    client: "Swag Marketing",
+    category: "Copywriting & Content Marketing",
+    title: "Brand voice per il mondo digital",
     description:
-      "Piano editoriale e blog post per uno studio di architettura. Contenuti che posizionano il team come punto di riferimento nel settore.",
-    result: "+60% traffico organico",
+      "Copywriting e content marketing per un'agenzia di marketing, con focus su tone of voice e contenuti B2B.",
+    result: "+50% lead qualificati",
   },
 ];
 
@@ -68,12 +68,12 @@ function PortfolioPage() {
   return (
     <>
       <section className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-28">
-        <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">Portfolio</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Portfolio</p>
         <h1 className="mt-4 max-w-3xl font-heading text-4xl text-foreground sm:text-5xl lg:text-6xl">
           Parole che hanno lasciato il segno
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Una selezione di progetti recenti: brand voice, contenuti web, campagne pubblicitarie e strategia editoriale.
+          Una selezione di progetti recenti: istituzioni, brand locali, agenzie e aziende che hanno scelto le mie parole per crescere.
         </p>
       </section>
 
@@ -86,7 +86,7 @@ function PortfolioPage() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{project.category}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">{project.category}</p>
                   <h2 className="mt-3 font-heading text-2xl text-foreground sm:text-3xl">{project.title}</h2>
                 </div>
                 <ArrowUpRight className="h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
