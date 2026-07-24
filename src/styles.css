@@ -139,12 +139,12 @@
   --chart-5: oklch(0.645 0.246 16.439);
 
   --sidebar: oklch(0.22 0.012 23.9);
-  --sidebar-foreground: oklch(0.971 0.068 23.8);
-  --sidebar-primary: oklch(0.971 0.068 23.8);
+  --sidebar-foreground: oklch(0.965 0.012 80);
+  --sidebar-primary: oklch(0.965 0.012 80);
   --sidebar-primary-foreground: oklch(0.16 0.009 23.9);
   --sidebar-accent: oklch(0.16 0.009 23.9);
-  --sidebar-accent-foreground: oklch(0.971 0.068 23.8);
-  --sidebar-border: oklch(0.971 0.068 23.8 / 12%);
+  --sidebar-accent-foreground: oklch(0.965 0.012 80);
+  --sidebar-border: oklch(0.965 0.012 80 / 12%);
   --sidebar-ring: oklch(0.75 0.03 23.9);
 }
 
