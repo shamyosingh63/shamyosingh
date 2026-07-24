@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system: Paper & Ink editorial palette.
+ * Design system: Paper & Ink editorial palette with a refined cobalt accent.
  *
- * Warm off-white paper backgrounds with deep ink typography.
- * Primary action color is the ink itself; surfaces use paper tones.
+ * Warm off-white paper backgrounds, deep ink typography, and a single
+ * confident blue for calls-to-action — inspired by premium personal brands.
  */
 
 @theme inline {
@@ -54,6 +54,10 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-muted: var(--brand-muted);
+
   --font-heading: "Instrument Serif", Georgia, serif;
   --font-body: "Work Sans", system-ui, sans-serif;
 }
@@ -81,6 +85,11 @@
   --border: oklch(0.16 0.009 23.9 / 12%);
   --input: oklch(0.16 0.009 23.9 / 16%);
   --ring: oklch(0.299 0.017 23.9);
+
+  /* Cobalt brand accent */
+  --brand: oklch(0.55 0.14 255);
+  --brand-foreground: oklch(0.99 0.005 23.9);
+  --brand-muted: oklch(0.76 0.08 255 / 15%);
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -118,6 +127,10 @@
   --border: oklch(0.971 0.068 23.8 / 12%);
   --input: oklch(0.971 0.068 23.8 / 16%);
   --ring: oklch(0.75 0.03 23.9);
+
+  --brand: oklch(0.65 0.12 255);
+  --brand-foreground: oklch(0.16 0.009 23.9);
+  --brand-muted: oklch(0.65 0.12 255 / 15%);
 
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
