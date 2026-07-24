@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, PenLine, FileText, Megaphone, Mail, BookOpen, Sparkles } from "lucide-react";
+import { ArrowRight, FileText, Search, PenLine, Layout, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/servizi")({
   head: () => ({
     meta: [
-      { title: "Servizi — Alessia Rossi Copywriter" },
-      { name: "description", content: "Scopri i servizi di copywriting per brand, contenuti web, copy pubblicitario, email marketing e strategia editoriale." },
-      { property: "og:title", content: "Servizi — Alessia Rossi Copywriter" },
-      { property: "og:description", content: "Scopri i servizi di copywriting per brand, contenuti web, copy pubblicitario, email marketing e strategia editoriale." },
+      { title: "Servizi — Shamyo Singh Copywriter" },
+      { name: "description", content: "Scopri i servizi di copywriting, SEO, content marketing, landing page e email marketing di Shamyo Singh." },
+      { property: "og:title", content: "Servizi — Shamyo Singh Copywriter" },
+      { property: "og:description", content: "Scopri i servizi di copywriting, SEO, content marketing, landing page e email marketing." },
     ],
   }),
   component: ServicesPage,
@@ -15,46 +15,39 @@ export const Route = createFileRoute("/servizi")({
 
 const services = [
   {
-    icon: PenLine,
-    title: "Brand Voice",
-    description:
-      "Definisco il tono di voce del tuo brand partendo dalla tua identità, dai tuoi valori e dal pubblico che vuoi attrarre. Il risultato è un linguaggio distintivo, coerente e immediatamente riconoscibile su ogni canale.",
-    deliverables: ["Tone of voice guidelines", "Messaging framework", "Glossario del brand"],
-  },
-  {
     icon: FileText,
-    title: "Contenuti web",
+    title: "Copywriting Blog & Article Writing",
     description:
-      "Dalle landing page ai blog post, passando per le schede prodotto: scrivo testi pensati per essere letti fino in fondo, condivisi e per guidare l'utente verso l'azione.",
-    deliverables: ["Landing page", "Blog post", "Schede prodotto", "SEO copy"],
+      "Articoli e post di blog pensati per informare, coinvolgere e costruire autorità nel tuo settore. Ogni contenuto è studiato sul tono di voce del brand e sugli obiettivi del lettore.",
+    deliverables: ["Articoli di blog", "Guest post", "Content pillar", "Editorial calendar"],
   },
   {
-    icon: Megaphone,
-    title: "Copy pubblicitario",
+    icon: Search,
+    title: "SEO Audits & Content Optimization",
     description:
-      "Headline che fermano lo scroll, claim che restano in testa, pay-off che sintetizzano un'intera filosofia. Per campagne digital, print e out-of-home.",
-    deliverables: ["Headline e claim", "Pay-off", "Script radio/TV", "Copy per social ads"],
+      "Analisi completa dei contenuti esistenti e ottimizzazione SEO on-page: keyword research, struttura, meta tag e copy che aiutano Google a capire chi sei e cosa offri.",
+    deliverables: ["SEO audit", "Keyword research", "Ottimizzazione on-page", "Content refresh"],
+  },
+  {
+    icon: PenLine,
+    title: "AI-Assisted Content & Content Marketing",
+    description:
+      "Strategie di content marketing potenziate dall'intelligenza artificiale, con supervisione umana a ogni passaggio. Più efficienza, senza perdere il tocco personale.",
+    deliverables: ["Content strategy", "AI-assisted drafting", "Editing umano", "Distribuzione"],
+  },
+  {
+    icon: Layout,
+    title: "Landing Page Copywriting",
+    description:
+      "Testi per landing page che guidano il visitatore verso l'azione: headline, body copy, call to action e proof element organizzati per massimizzare conversioni.",
+    deliverables: ["Headline & hook", "Body copy", "Call to action", "A/B test variants"],
   },
   {
     icon: Mail,
-    title: "Email marketing",
+    title: "Email Sales & Soap Opera Sequences",
     description:
-      "Creo sequenze di email che non finiscono nella spam: welcome flow, newsletter, launch sequence e campagne di riattivazione, con un tono che costruisce fiducia.",
-    deliverables: ["Welcome flow", "Newsletter", "Launch sequence", "Re-engagement"],
-  },
-  {
-    icon: BookOpen,
-    title: "Content strategy",
-    description:
-      "Piano editoriale, calendario contenuti e linee guida per mantenere alta la qualità della comunicazione nel tempo, senza perdere di vista gli obiettivi di business.",
-    deliverables: ["Piano editoriale", "Content audit", "Calendario contenuti", "Brief creativi"],
-  },
-  {
-    icon: Sparkles,
-    title: "Revisione e editing",
-    description:
-      "Hai già un testo? Lo revisiono per renderlo più incisivo, scorrevole e aderente al tuo tono di voce. Dalla correzione bozze al rewriting completo.",
-    deliverables: ["Proofreading", "Copy editing", "Rewriting", "Localizzazione italiano"],
+      "Sequenze email che raccontano una storia, creano suspense e portano il lettore a una decisione di acquisto. Dalle welcome series ai lanci a tempo limitato.",
+    deliverables: ["Soap opera sequences", "Launch emails", "Welcome flow", "Re-engagement"],
   },
 ];
 
@@ -63,12 +56,12 @@ function ServicesPage() {
     <>
       {/* Page header */}
       <section className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-28">
-        <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">Servizi</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Servizi</p>
         <h1 className="mt-4 max-w-3xl font-heading text-4xl text-foreground sm:text-5xl lg:text-6xl">
           Tutto ciò di cui le tue parole hanno bisogno
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Dalla strategia al singolo claim, offro un approccio flessibile: posso seguirti su un progetto specifico o diventare la tua copywriter di riferimento.
+          Dalla strategia al singolo articolo, offro un approccio flessibile: posso seguirti su un progetto specifico o diventare la tua copywriter di riferimento.
         </p>
       </section>
 
@@ -80,7 +73,7 @@ function ServicesPage() {
               key={service.title}
               className="flex flex-col rounded-2xl border border-border/60 bg-card/30 p-8 transition-colors hover:border-border"
             >
-              <service.icon className="h-7 w-7 text-muted-foreground" />
+              <service.icon className="h-7 w-7 text-brand" />
               <h2 className="mt-6 font-heading text-2xl text-foreground">{service.title}</h2>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
               <ul className="mt-6 space-y-2">
@@ -141,7 +134,7 @@ function ServicesPage() {
           </div>
           <Link
             to="/contatti"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground transition-opacity hover:opacity-90"
           >
             Richiedi una proposta
             <ArrowRight className="h-4 w-4" />
