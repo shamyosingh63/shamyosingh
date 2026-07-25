@@ -88,8 +88,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { name: "twitter:description", content: "Copywriter e SEO specialist. Trasformo idee in parole che vendono: contenuti strategici, landing page, email marketing e SEO per brand e aziende." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb365627-ad0d-4242-a997-45d447b82e02" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb365627-ad0d-4242-a997-45d447b82e02" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f1599354-15bf-4c23-9253-c0c89474e053" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f1599354-15bf-4c23-9253-c0c89474e053" },
     ],
     links: [
       {
