@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 
+import monogram from "../assets/ss-monogram.png.asset.json";
+
 const leftLinks = [
   { to: "/about", label: "About" },
   { to: "/servizi", label: "Servizi" },
@@ -14,8 +16,14 @@ const rightLinks = [
 function MonogramLogo() {
   return (
     <Link to="/" className="group flex flex-col items-center justify-center">
-      <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-foreground bg-background transition-colors group-hover:bg-card/50">
-        <span className="font-heading text-2xl leading-none text-foreground">SS</span>
+      <div className="h-14 w-14 overflow-hidden rounded-full bg-background transition-transform group-hover:scale-105">
+        <img
+          src={monogram.url}
+          alt="Shamyo Singh — monogramma SS"
+          width={112}
+          height={112}
+          className="h-full w-full object-contain"
+        />
       </div>
       <span className="mt-1 font-heading text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
         Shamyo Singh
@@ -26,9 +34,8 @@ function MonogramLogo() {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        {/* Left nav */}
         <nav className="hidden flex-1 items-center justify-start gap-8 md:flex">
           {leftLinks.map((link) => (
             <Link
@@ -42,12 +49,10 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Center logo */}
         <div className="flex flex-1 justify-start md:justify-center">
           <MonogramLogo />
         </div>
 
-        {/* Right nav + CTA */}
         <div className="hidden flex-1 items-center justify-end gap-8 md:flex">
           {rightLinks.map((link) => (
             <Link
@@ -61,7 +66,7 @@ export function Header() {
           ))}
           <Link
             to="/contatti"
-            className="rounded-full bg-brand px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-brand-foreground transition-opacity hover:opacity-90"
+            className="rounded-full bg-brand px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-lg shadow-brand/20 transition-all hover:-translate-y-0.5 hover:opacity-95"
           >
             Work together
           </Link>
@@ -84,17 +89,7 @@ function MobileMenu() {
         aria-label={open ? "Chiudi menu" : "Apri menu"}
         className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           {open ? (
             <>
               <path d="M18 6 6 18" />
