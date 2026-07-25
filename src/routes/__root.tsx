@@ -79,13 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Shamyo Singh — Copywriter & Content Strategist" },
-      { name: "description", content: "Copywriter freelance e content strategist. Scrivo parole che posizionano, persuadono e vendono per brand, aziende e istituzioni." },
+      { title: "Shamyo Singh — Copywriter & SEO Specialist" },
+      { name: "description", content: "Copywriter e SEO specialist. Trasformo idee in parole che vendono: contenuti strategici, landing page, email marketing e SEO per brand e aziende." },
       { name: "author", content: "Shamyo Singh" },
-      { property: "og:title", content: "Shamyo Singh — Copywriter & Content Strategist" },
-      { property: "og:description", content: "Copywriter freelance e content strategist. Scrivo parole che posizionano, persuadono e vendono." },
+      { property: "og:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
+      { property: "og:description", content: "Copywriter e SEO specialist. Trasformo idee in parole che vendono: contenuti strategici, landing page, email marketing e SEO per brand e aziende." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
+      { name: "twitter:description", content: "Copywriter e SEO specialist. Trasformo idee in parole che vendono: contenuti strategici, landing page, email marketing e SEO per brand e aziende." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb365627-ad0d-4242-a997-45d447b82e02" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb365627-ad0d-4242-a997-45d447b82e02" },
     ],
     links: [
       {

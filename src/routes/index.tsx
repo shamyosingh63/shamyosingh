@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
       { title: "Shamyo Singh — Copywriter & SEO Specialist" },
       { name: "description", content: "Copywriter e SEO specialist. Trasformo idee in parole che vendono: contenuti strategici, landing page, email marketing e SEO per brand e aziende." },
       { property: "og:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
-      { property: "og:description", content: "Trasformo idee in parole che vendono. Copywriting strategico, contenuti SEO, landing page ed email marketing." },
+      { property: "og:description", content: "Copywriter e SEO specialist. Trasformo idee in parole che vendono: contenuti strategici, landing page, email marketing e SEO per brand e aziende." },
       { property: "og:image", content: portrait.url },
       { name: "twitter:image", content: portrait.url },
     ],
