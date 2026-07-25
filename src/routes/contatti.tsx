@@ -1,34 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send, Linkedin, Instagram } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/contatti")({
   head: () => ({
     meta: [
       { title: "Contatti — Shamyo Singh Copywriter" },
-      { name: "description", content: "Contatta Shamyo Singh per un progetto di copywriting, SEO, content strategy o email marketing. Rispondo entro 24 ore." },
+      { name: "description", content: "Contatta Shamyo Singh per un progetto di copywriting, SEO, landing page o email marketing. Rispondo entro 24 ore." },
       { property: "og:title", content: "Contatti — Shamyo Singh Copywriter" },
-      { property: "og:description", content: "Contatta Shamyo Singh per un progetto di copywriting, SEO, content strategy o email marketing." },
+      { property: "og:description", content: "Contatta Shamyo Singh per copywriting, SEO, landing page ed email marketing." },
     ],
   }),
   component: ContactPage,
 });
 
 const services = [
-  "Copywriting Blog & Article Writing",
+  "Copywriting",
+  "Blog & Article Writing",
   "SEO Audits & Content Optimization",
-  "AI-Assisted Content & Content Marketing",
-  "Landing Page Copywriting",
-  "Email Sales & Soap Opera Sequences",
+  "AI-Assisted Content",
+  "Landing Pages",
+  "Email Sales & Sequences",
   "Altro",
 ];
 
 function ContactPage() {
+  useReveal();
   const [submitted, setSubmitted] = useState(false);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
@@ -40,34 +43,44 @@ function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = data.get("name");
+    const email = data.get("email");
+    const company = data.get("company");
+    const message = data.get("message");
+    const body = `Nome: ${name}\nEmail: ${email}\nAzienda: ${company}\nServizi: ${selectedServices.join(", ")}\n\n${message}`;
+    window.location.href = `mailto:Shamyosingh63@gmail.com?subject=${encodeURIComponent("Nuovo progetto — " + name)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-28">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contatti</p>
-        <h1 className="mt-4 max-w-3xl font-heading text-4xl text-foreground sm:text-5xl lg:text-6xl">
-          Raccontami il tuo progetto
-        </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Compila il form o scrivimi direttamente. Risponderò entro 24 ore lavorative con una proposta su misura.
-        </p>
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-32 top-32 h-96 w-96 rounded-full bg-brand/10 blur-3xl animate-float" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-28">
+          <p className="reveal text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Contatti</p>
+          <h1 className="reveal mt-4 max-w-3xl font-heading text-5xl leading-[1.05] text-foreground sm:text-6xl lg:text-7xl">
+            Raccontami il tuo <em className="not-italic text-brand">progetto.</em>
+          </h1>
+          <p className="reveal mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Ogni grande comunicazione nasce da una semplice conversazione. Compila il form o scrivimi direttamente: rispondo entro 24 ore lavorative.
+          </p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
-        <div className="grid gap-16 lg:grid-cols-2">
-          {/* Form */}
-          <div className="rounded-3xl border border-border/60 bg-card/30 p-8 sm:p-10">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="reveal tilt-card rounded-[2rem] border border-border/60 bg-card/30 p-8 shadow-lg sm:p-10">
             {submitted ? (
               <div className="py-12 text-center">
-                <div className="mx-flex mx-auto h-12 w-12 items-center justify-center rounded-full bg-brand text-brand-foreground">
-                  <Send className="mx-auto h-5 w-5" />
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand text-brand-foreground">
+                  <Send className="h-5 w-5" />
                 </div>
-                <h2 className="mt-6 font-heading text-2xl text-foreground">Messaggio inviato!</h2>
-                <p className="mt-3 text-muted-foreground">
-                  Grazie per avermi contattata. Ti risponderò al più presto.
-                </p>
+                <h2 className="mt-6 font-heading text-3xl text-foreground">Messaggio inviato!</h2>
+                <p className="mt-3 text-muted-foreground">Grazie per avermi contattato. Ti risponderò al più presto.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -91,9 +104,9 @@ function ContactPage() {
                         key={service}
                         type="button"
                         onClick={() => toggleService(service)}
-                        className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                        className={`rounded-full border px-4 py-2 text-sm transition-all ${
                           selectedServices.includes(service)
-                            ? "border-brand bg-brand text-brand-foreground"
+                            ? "border-brand bg-brand text-brand-foreground shadow-md shadow-brand/20"
                             : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
                         }`}
                       >
@@ -104,74 +117,59 @@ function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Messaggio</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Descrivimi il tuo progetto, i tuoi obiettivi e le tempistiche..."
-                    rows={5}
-                    required
-                  />
+                  <Textarea id="message" name="message" placeholder="Descrivimi il tuo progetto, i tuoi obiettivi e le tempistiche..." rows={5} required />
                 </div>
-                <Button
-                  type="submit"
-                  className="w-full rounded-full bg-brand py-6 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground hover:opacity-90"
-                >
+                <Button type="submit" className="w-full rounded-full bg-brand py-6 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl shadow-brand/20 hover:opacity-90">
                   Invia richiesta
                 </Button>
               </form>
             )}
           </div>
 
-          {/* Contact info */}
-          <div className="flex flex-col justify-between">
+          <div className="reveal flex flex-col justify-between gap-10">
             <div className="space-y-8">
               <div>
-                <h2 className="font-heading text-2xl text-foreground">Informazioni di contatto</h2>
-                <p className="mt-3 text-muted-foreground">
-                  Preferisci scrivermi direttamente? Ecco come raggiungermi.
-                </p>
+                <h2 className="font-heading text-3xl text-foreground">Preferisci scrivermi direttamente?</h2>
+                <p className="mt-3 text-muted-foreground">Sono raggiungibile su email e social. Rispondo sempre.</p>
               </div>
-              <div className="space-y-6">
-                <a
-                  href="mailto:hello@shamyosingh.it"
-                  className="flex items-center gap-4 text-foreground transition-opacity hover:opacity-70"
-                >
-                  <Mail className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-base">hello@shamyosingh.it</span>
+              <div className="space-y-4">
+                <a href="mailto:Shamyosingh63@gmail.com" className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-background p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                  <Mail className="h-5 w-5 text-brand" />
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Email</p>
+                    <p className="text-base font-medium text-foreground">Shamyosingh63@gmail.com</p>
+                  </div>
                 </a>
-                <a
-                  href="tel:+393331234567"
-                  className="flex items-center gap-4 text-foreground transition-opacity hover:opacity-70"
-                >
-                  <Phone className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-base">+39 333 123 4567</span>
+                <a href="https://www.linkedin.com/in/shamyo-singh-824053304" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-background p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                  <Linkedin className="h-5 w-5 text-brand" />
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">LinkedIn</p>
+                    <p className="text-base font-medium text-foreground">shamyo-singh</p>
+                  </div>
                 </a>
-                <div className="flex items-start gap-4 text-foreground">
-                  <MapPin className="h-5 w-5 shrink-0 text-muted-foreground" />
-                  <span className="text-base">
-                    Palermo, Italia
-                    <br />
-                    <span className="text-sm text-muted-foreground">Lavoro con clienti in tutta Italia e all'estero.</span>
-                  </span>
+                <a href="https://www.instagram.com/_sham_y0/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-background p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                  <Instagram className="h-5 w-5 text-brand" />
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Instagram</p>
+                    <p className="text-base font-medium text-foreground">@_sham_y0</p>
+                  </div>
+                </a>
+                <div className="flex items-start gap-4 rounded-2xl border border-border/60 bg-background p-5">
+                  <MapPin className="h-5 w-5 shrink-0 text-brand" />
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Location</p>
+                    <p className="text-base font-medium text-foreground">Italia — remoto ovunque</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 rounded-2xl border border-border/60 bg-background p-8">
+            <div className="rounded-2xl border border-border/60 bg-card/30 p-6">
               <h3 className="font-heading text-xl text-foreground">Tempistiche</h3>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                <li className="flex justify-between">
-                  <span>Risposta a richieste</span>
-                  <span className="font-medium text-foreground">Entro 24h</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Proposta personalizzata</span>
-                  <span className="font-medium text-foreground">2-3 giorni</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Avvio progetto</span>
-                  <span className="font-medium text-foreground">Su disponibilità</span>
-                </li>
+                <li className="flex justify-between"><span>Risposta a richieste</span><span className="font-medium text-foreground">Entro 24h</span></li>
+                <li className="flex justify-between"><span>Proposta personalizzata</span><span className="font-medium text-foreground">2–3 giorni</span></li>
+                <li className="flex justify-between"><span>Avvio progetto</span><span className="font-medium text-foreground">Su disponibilità</span></li>
               </ul>
             </div>
           </div>
