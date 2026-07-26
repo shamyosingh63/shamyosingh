@@ -2,11 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, FileText, Search, PenLine, Layout, Mail, Sparkles, Quote } from "lucide-react";
 
 import portrait from "../assets/shamyo-main.jpg.asset.json";
+import portraitBw from "../assets/shamyo-portrait-bw.png.asset.json";
 import monogram from "../assets/ss-monogram.png.asset.json";
+import writerDesk from "../assets/writer-desk.jpg.asset.json";
+import collage from "../assets/storytelling-collage.jpeg.asset.json";
 import workspaceNotes from "../assets/workspace-notes.jpg";
 import typewriterHands from "../assets/typewriter-hands.jpg";
-import magazinesStack from "../assets/magazines-stack.jpg";
 import paperTexture from "../assets/paper-texture.jpg";
+import { Testimonials } from "@/components/Testimonials";
+import { TypingServices } from "@/components/TypingServices";
+import { Gallery } from "@/components/Gallery";
+import { VideoBand } from "@/components/VideoBand";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
