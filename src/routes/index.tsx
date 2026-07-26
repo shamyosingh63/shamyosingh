@@ -1,12 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, FileText, Search, PenLine, Layout, Mail, Sparkles, Quote } from "lucide-react";
 
-import portrait from "../assets/shamyo-portrait.jpg.asset.json";
+import portrait from "../assets/shamyo-main.jpg.asset.json";
+import portraitBw from "../assets/shamyo-portrait-bw.png.asset.json";
 import monogram from "../assets/ss-monogram.png.asset.json";
+import writerDesk from "../assets/writer-desk.jpg.asset.json";
+import collage from "../assets/storytelling-collage.jpeg.asset.json";
 import workspaceNotes from "../assets/workspace-notes.jpg";
 import typewriterHands from "../assets/typewriter-hands.jpg";
-import magazinesStack from "../assets/magazines-stack.jpg";
 import paperTexture from "../assets/paper-texture.jpg";
+import { Testimonials } from "@/components/Testimonials";
+import { TypingServices } from "@/components/TypingServices";
+import { Gallery } from "@/components/Gallery";
+import { VideoBand } from "@/components/VideoBand";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -94,15 +100,19 @@ function HomePage() {
               “Le parole non sono solo testo. Sono il ponte tra un brand e le persone.”
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link to="/contatti" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl shadow-brand/25 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30">
-                Parliamone
-                <ArrowRight className="h-4 w-4" />
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link to="/contatti" className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl shadow-brand/25 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30 active:scale-95">
+                Prenota una call gratuita
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="/servizi" className="inline-flex items-center justify-center rounded-full border border-foreground/20 bg-background px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-foreground transition-colors hover:bg-card/50">
-                Scopri i servizi
+              <Link to="/portfolio" className="inline-flex items-center justify-center rounded-full border border-foreground/20 bg-background px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-foreground transition-all hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground active:scale-95">
+                Guarda i risultati
               </Link>
             </div>
+            <p className="mt-5 text-xs uppercase tracking-[0.15em] text-muted-foreground">
+              ⭐ 4.7/5 su 1.864 recensioni verificate · Risposta entro 24h
+            </p>
+
           </div>
 
           {/* Portrait + floating cards */}
@@ -136,6 +146,11 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* SERVING UP STRATEGY — typing animation */}
+      <TypingServices />
+
+
 
       {/* ABOUT ME */}
       <section className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
@@ -173,12 +188,11 @@ function HomePage() {
 
       {/* PHILOSOPHY — parallax band */}
       <section
-        className="relative overflow-hidden border-y border-border/50"
+        className="relative overflow-hidden border-y border-border/50 bg-fixed max-md:bg-scroll"
         style={{
           backgroundImage: `linear-gradient(rgba(245,243,238,0.85), rgba(245,243,238,0.85)), url(${paperTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
         }}
       >
         <div className="mx-auto max-w-5xl px-6 py-24 text-center lg:px-8 lg:py-32">
@@ -251,6 +265,63 @@ function HomePage() {
         </div>
       </section>
 
+      {/* EDITORIAL IMAGE BAND */}
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+        <div className="grid gap-6 md:grid-cols-12">
+          <figure className="reveal group relative col-span-12 overflow-hidden rounded-[2rem] shadow-xl md:col-span-7">
+            <img
+              src={collage.url}
+              alt="Collage editoriale: copy, storytelling e bozze di scrittura"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[16/10] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/85 to-transparent p-8">
+              <p className="font-heading text-2xl text-background sm:text-3xl">
+                Copy, draft, revisione. <span className="text-brand">Ripetere.</span>
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure className="reveal group relative col-span-6 overflow-hidden rounded-[2rem] shadow-xl md:col-span-5">
+            <img
+              src={portraitBw.url}
+              alt="Shamyo Singh sorridente, ritratto in bianco e nero"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/5] w-full object-cover grayscale transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:grayscale-0"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/85 to-transparent p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-background/70">Dietro le parole</p>
+              <p className="mt-2 font-heading text-2xl text-background">Shamyo Singh</p>
+            </figcaption>
+          </figure>
+
+          <figure className="reveal group relative col-span-6 overflow-hidden rounded-[2rem] shadow-xl md:col-span-5">
+            <img
+              src={writerDesk.url}
+              alt="Scrittore al lavoro alla scrivania con macchina da scrivere"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 md:aspect-[3/2]"
+            />
+          </figure>
+
+          <div className="reveal col-span-12 flex flex-col justify-center rounded-[2rem] border border-border/60 bg-card/40 p-8 md:col-span-7 lg:p-12">
+            <Quote className="h-8 w-8 text-brand" />
+            <p className="mt-5 font-heading text-2xl leading-snug text-foreground sm:text-3xl">
+              “Un professionista è un dilettante che non ha mollato.”
+            </p>
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+              Scrivere è un mestiere di disciplina, non di ispirazione. Ogni riga che leggi sul tuo sito
+              può avvicinare o allontanare un cliente: io lavoro perché avvicini.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* WHY ME */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="reveal max-w-3xl">
@@ -314,25 +385,15 @@ function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(245,243,238,0.9), rgba(245,243,238,0.9)), url(${magazinesStack})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-8 lg:py-32">
-          <Quote className="mx-auto h-10 w-10 text-brand" />
-          <blockquote className="reveal mt-8 font-heading text-3xl leading-snug text-foreground sm:text-4xl lg:text-5xl">
-            “Avevamo bisogno di comunicare meglio il valore del nostro progetto. Il lavoro di copywriting ci ha aiutato a trovare una voce più chiara, professionale e vicina al nostro pubblico.”
-          </blockquote>
-          <p className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            — Cliente & Brand Partner
-          </p>
-        </div>
-      </section>
+      {/* GALLERY */}
+      <Gallery />
+
+      {/* TESTIMONIALS CAROUSEL */}
+      <Testimonials />
+
+      {/* VIDEO BAND */}
+      <VideoBand />
+
 
       {/* FINAL CTA */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
@@ -343,22 +404,29 @@ function HomePage() {
           </div>
           <div className="relative flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">Parliamone</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">Il prossimo passo</p>
+
               <h2 className="mt-4 font-heading text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
-                Hai un progetto?<br />
-                <em className="not-italic text-brand-foreground/90">Raccontamelo.</em>
+                Quanto ti costa continuare a<br />
+                <em className="not-italic text-brand">comunicare nel modo sbagliato?</em>
               </h2>
               <p className="mt-6 text-primary-foreground/80 sm:text-lg">
-                Ogni grande comunicazione nasce da una semplice conversazione. Se vuoi trasformare idee, prodotti o servizi in una storia capace di lasciare il segno, possiamo creare qualcosa di straordinario insieme.
+                Ogni giorno di copy confuso è un cliente che sceglie qualcun altro. Raccontami il tuo
+                progetto in due righe: ti rispondo entro 24 ore con una prima idea concreta, gratis e
+                senza impegno.
+              </p>
+              <p className="mt-5 text-sm text-primary-foreground/60">
+                Posti limitati ogni mese — lavoro su pochi progetti alla volta.
               </p>
             </div>
-            <Link to="/contatti" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl">
-              Iniziamo
-              <ArrowRight className="h-4 w-4" />
+            <Link to="/contatti" className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl active:scale-95">
+              Raccontami il tuo progetto
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
       </section>
+
     </>
   );
 }
