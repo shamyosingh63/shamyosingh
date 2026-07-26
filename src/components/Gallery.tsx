@@ -64,7 +64,7 @@ export function Gallery() {
                 className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform group-hover:scale-[1.07]"
               />
             </div>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/10 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/95 via-foreground/35 to-foreground/5 opacity-85 transition-opacity duration-500 group-hover:opacity-100" />
             <figcaption className="absolute inset-x-0 bottom-0 translate-y-2 p-6 opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-background/70">
                 {item.category}
