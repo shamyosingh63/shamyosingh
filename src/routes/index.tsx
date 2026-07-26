@@ -143,6 +143,11 @@ function HomePage() {
         </div>
       </section>
 
+      {/* SERVING UP STRATEGY — typing animation */}
+      <TypingServices />
+
+
+
       {/* ABOUT ME */}
       <section className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
