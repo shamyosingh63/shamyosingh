@@ -184,12 +184,11 @@ function HomePage() {
 
       {/* PHILOSOPHY — parallax band */}
       <section
-        className="relative overflow-hidden border-y border-border/50"
+        className="relative overflow-hidden border-y border-border/50 bg-fixed max-md:bg-scroll"
         style={{
           backgroundImage: `linear-gradient(rgba(245,243,238,0.85), rgba(245,243,238,0.85)), url(${paperTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
         }}
       >
         <div className="mx-auto max-w-5xl px-6 py-24 text-center lg:px-8 lg:py-32">
