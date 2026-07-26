@@ -404,10 +404,8 @@ function HomePage() {
           </div>
           <div className="relative flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">Parliamone</p>
-              <h2 className="mt-4 font-heading text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
-                Hai un progetto?<br />
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">Il prossimo passo</p>
+
               <h2 className="mt-4 font-heading text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
                 Quanto ti costa continuare a<br />
                 <em className="not-italic text-brand">comunicare nel modo sbagliato?</em>
