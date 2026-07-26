@@ -261,6 +261,63 @@ function HomePage() {
         </div>
       </section>
 
+      {/* EDITORIAL IMAGE BAND */}
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+        <div className="grid gap-6 md:grid-cols-12">
+          <figure className="reveal group relative col-span-12 overflow-hidden rounded-[2rem] shadow-xl md:col-span-7">
+            <img
+              src={collage.url}
+              alt="Collage editoriale: copy, storytelling e bozze di scrittura"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[16/10] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/85 to-transparent p-8">
+              <p className="font-heading text-2xl text-background sm:text-3xl">
+                Copy, draft, revisione. <span className="text-brand">Ripetere.</span>
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure className="reveal group relative col-span-6 overflow-hidden rounded-[2rem] shadow-xl md:col-span-5">
+            <img
+              src={portraitBw.url}
+              alt="Shamyo Singh sorridente, ritratto in bianco e nero"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/5] w-full object-cover grayscale transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:grayscale-0"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/85 to-transparent p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-background/70">Dietro le parole</p>
+              <p className="mt-2 font-heading text-2xl text-background">Shamyo Singh</p>
+            </figcaption>
+          </figure>
+
+          <figure className="reveal group relative col-span-6 overflow-hidden rounded-[2rem] shadow-xl md:col-span-5">
+            <img
+              src={writerDesk.url}
+              alt="Scrittore al lavoro alla scrivania con macchina da scrivere"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 md:aspect-[3/2]"
+            />
+          </figure>
+
+          <div className="reveal col-span-12 flex flex-col justify-center rounded-[2rem] border border-border/60 bg-card/40 p-8 md:col-span-7 lg:p-12">
+            <Quote className="h-8 w-8 text-brand" />
+            <p className="mt-5 font-heading text-2xl leading-snug text-foreground sm:text-3xl">
+              “Un professionista è un dilettante che non ha mollato.”
+            </p>
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+              Scrivere è un mestiere di disciplina, non di ispirazione. Ogni riga che leggi sul tuo sito
+              può avvicinare o allontanare un cliente: io lavoro perché avvicini.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* WHY ME */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="reveal max-w-3xl">
