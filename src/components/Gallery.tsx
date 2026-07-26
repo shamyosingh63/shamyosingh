@@ -25,7 +25,7 @@ const items: Item[] = [
   { src: bookshelf.url, alt: "Libreria editoriale con riviste e libri d'arte", client: "Save the Children", category: "SEO content & copywriting", metric: "+45% traffico organico", ratio: "aspect-[4/5]" },
   { src: magazinesStack, alt: "Pila di riviste editoriali", client: "Tecnocasa", category: "SEO locale & contenuti web", metric: "+60% visibilità locale", ratio: "aspect-[4/3]" },
   { src: handsDetail.url, alt: "Dettaglio di mani al lavoro", client: "Lega Navale", category: "Web copy & SEO", metric: "+38% traffico organico", ratio: "aspect-[1/1]" },
-  { src: workspaceNotes.url ?? workspaceNotes, alt: "Appunti di lavoro su carta", client: "Ristorazione locale", category: "Copy sito & campagne stagionali", metric: "+41% prenotazioni dirette", ratio: "aspect-[3/2]" },
+  { src: workspaceNotes, alt: "Appunti di lavoro su carta", client: "Ristorazione locale", category: "Copy sito & campagne stagionali", metric: "+41% prenotazioni dirette", ratio: "aspect-[3/2]" },
 ];
 
 export function Gallery() {
