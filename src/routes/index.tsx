@@ -100,15 +100,19 @@ function HomePage() {
               “Le parole non sono solo testo. Sono il ponte tra un brand e le persone.”
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link to="/contatti" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl shadow-brand/25 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30">
-                Parliamone
-                <ArrowRight className="h-4 w-4" />
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link to="/contatti" className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl shadow-brand/25 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/30 active:scale-95">
+                Prenota una call gratuita
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="/servizi" className="inline-flex items-center justify-center rounded-full border border-foreground/20 bg-background px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-foreground transition-colors hover:bg-card/50">
-                Scopri i servizi
+              <Link to="/portfolio" className="inline-flex items-center justify-center rounded-full border border-foreground/20 bg-background px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-foreground transition-all hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground active:scale-95">
+                Guarda i risultati
               </Link>
             </div>
+            <p className="mt-5 text-xs uppercase tracking-[0.15em] text-muted-foreground">
+              ⭐ 4.7/5 su 1.864 recensioni verificate · Risposta entro 24h
+            </p>
+
           </div>
 
           {/* Portrait + floating cards */}
