@@ -320,25 +320,15 @@ function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(245,243,238,0.9), rgba(245,243,238,0.9)), url(${magazinesStack})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-8 lg:py-32">
-          <Quote className="mx-auto h-10 w-10 text-brand" />
-          <blockquote className="reveal mt-8 font-heading text-3xl leading-snug text-foreground sm:text-4xl lg:text-5xl">
-            “Avevamo bisogno di comunicare meglio il valore del nostro progetto. Il lavoro di copywriting ci ha aiutato a trovare una voce più chiara, professionale e vicina al nostro pubblico.”
-          </blockquote>
-          <p className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            — Cliente & Brand Partner
-          </p>
-        </div>
-      </section>
+      {/* GALLERY */}
+      <Gallery />
+
+      {/* TESTIMONIALS CAROUSEL */}
+      <Testimonials />
+
+      {/* VIDEO BAND */}
+      <VideoBand />
+
 
       {/* FINAL CTA */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
