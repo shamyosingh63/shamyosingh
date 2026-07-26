@@ -407,19 +407,28 @@ function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">Parliamone</p>
               <h2 className="mt-4 font-heading text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
                 Hai un progetto?<br />
-                <em className="not-italic text-brand-foreground/90">Raccontamelo.</em>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/70">Il prossimo passo</p>
+              <h2 className="mt-4 font-heading text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
+                Quanto ti costa continuare a<br />
+                <em className="not-italic text-brand">comunicare nel modo sbagliato?</em>
               </h2>
               <p className="mt-6 text-primary-foreground/80 sm:text-lg">
-                Ogni grande comunicazione nasce da una semplice conversazione. Se vuoi trasformare idee, prodotti o servizi in una storia capace di lasciare il segno, possiamo creare qualcosa di straordinario insieme.
+                Ogni giorno di copy confuso è un cliente che sceglie qualcun altro. Raccontami il tuo
+                progetto in due righe: ti rispondo entro 24 ore con una prima idea concreta, gratis e
+                senza impegno.
+              </p>
+              <p className="mt-5 text-sm text-primary-foreground/60">
+                Posti limitati ogni mese — lavoro su pochi progetti alla volta.
               </p>
             </div>
-            <Link to="/contatti" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl">
-              Iniziamo
-              <ArrowRight className="h-4 w-4" />
+            <Link to="/contatti" className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl active:scale-95">
+              Raccontami il tuo progetto
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
       </section>
+
     </>
   );
 }
