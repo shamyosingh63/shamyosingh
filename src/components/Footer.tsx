@@ -17,7 +17,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
           <div className="flex items-center gap-4">
-            <img src={monogram.url} alt="SS" width={64} height={64} className="h-14 w-14 object-contain" />
+            <img src={monogram.url} alt="Shamyo Singh logo" width={64} height={64} className="h-14 w-14 object-contain" />
             <div>
               <Link to="/" className="font-heading text-2xl tracking-tight text-foreground">
                 Shamyo Singh
