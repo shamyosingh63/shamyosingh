@@ -104,6 +104,42 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://shamyosingh.lovable.app/#organization",
+              name: "Shamyo Singh",
+              alternateName: "Shamyo Singh Copywriter & SEO Specialist",
+              url: "https://shamyosingh.lovable.app",
+              email: "mailto:Shamyosingh63@gmail.com",
+              sameAs: [
+                "https://www.linkedin.com/in/shamyo-singh-824053304",
+                "https://www.instagram.com/_sham_y0",
+              ],
+              logo: {
+                "@type": "ImageObject",
+                url: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/16208658-9099-4189-8175-2a2929e7b1df",
+              },
+              description:
+                "Copywriter e SEO specialist specializzato in contenuti strategici, landing page, email marketing e storytelling per brand e aziende.",
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://shamyosingh.lovable.app/#website",
+              name: "Shamyo Singh — Copywriter & SEO Specialist",
+              url: "https://shamyosingh.lovable.app",
+              publisher: { "@id": "https://shamyosingh.lovable.app/#organization" },
+              inLanguage: "it-IT",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
