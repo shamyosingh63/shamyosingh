@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SITE_URL, OG_IMAGE_URL } from "../lib/seo";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
@@ -85,11 +86,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { property: "og:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { name: "twitter:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/16208658-9099-4189-8175-2a2929e7b1df" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/16208658-9099-4189-8175-2a2929e7b1df" },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [
       {
@@ -123,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               ],
               logo: {
                 "@type": "ImageObject",
-                url: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/16208658-9099-4189-8175-2a2929e7b1df",
+                url: OG_IMAGE_URL,
               },
               description:
                 "Copywriter e SEO specialist specializzato in contenuti strategici, landing page, email marketing e storytelling per brand e aziende.",
