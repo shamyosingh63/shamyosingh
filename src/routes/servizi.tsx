@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, FileText, Search, PenLine, Layout, Mail, Sparkles } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/servizi")({
   head: () => ({
@@ -9,6 +10,14 @@ export const Route = createFileRoute("/servizi")({
       { name: "description", content: "Copywriting, SEO, AI-assisted content, landing page ed email marketing. Servizi su misura per far crescere il tuo brand con le parole giuste." },
       { property: "og:title", content: "Servizi — Shamyo Singh Copywriter" },
       { property: "og:description", content: "Copywriting, SEO, AI-assisted content, landing page ed email marketing." },
+      { property: "og:url", content: `${SITE_URL}/servizi` },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { name: "twitter:title", content: "Servizi — Shamyo Singh Copywriter" },
+      { name: "twitter:description", content: "Copywriting, SEO, AI-assisted content, landing page ed email marketing." },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+    ],
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/servizi` },
     ],
     scripts: [
       {

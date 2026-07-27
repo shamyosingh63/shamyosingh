@@ -14,6 +14,7 @@ import { TypingServices } from "@/components/TypingServices";
 import { Gallery } from "@/components/Gallery";
 import { VideoBand } from "@/components/VideoBand";
 import { useReveal } from "@/hooks/use-reveal";
+import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,8 +23,14 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
       { property: "og:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { property: "og:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
-      { property: "og:image", content: portrait.url },
-      { name: "twitter:image", content: portrait.url },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { name: "twitter:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
+      { name: "twitter:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL },
     ],
   }),
   component: HomePage,

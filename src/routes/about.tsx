@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import portrait from "../assets/shamyo-main.jpg.asset.json";
 import workspaceNotes from "../assets/workspace-notes.jpg";
 import { useReveal } from "@/hooks/use-reveal";
+import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,8 +13,14 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Shamyo Singh, copywriter specializzato in contenuti strategici, landing page, email marketing e SEO. Parole autentiche, chiare e capaci di generare risultati." },
       { property: "og:title", content: "About — Shamyo Singh Copywriter" },
       { property: "og:description", content: "Copywriter specializzato in contenuti strategici, landing page, email marketing e SEO." },
-      { property: "og:image", content: portrait.url },
-      { name: "twitter:image", content: portrait.url },
+      { property: "og:url", content: `${SITE_URL}/about` },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { name: "twitter:title", content: "About — Shamyo Singh Copywriter" },
+      { name: "twitter:description", content: "Copywriter specializzato in contenuti strategici, landing page, email marketing e SEO." },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+    ],
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/about` },
     ],
   }),
   component: AboutPage,
