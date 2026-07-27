@@ -133,7 +133,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": "https://shamyosingh.lovable.app/#website",
               name: "Shamyo Singh — Copywriter & SEO Specialist",
               url: "https://shamyosingh.lovable.app",
-              publisher: { "@id": "change this to "https://shamyosingh.lovable.app/#organization" },
+              publisher: { "@id": "https://shamyosingh.lovable.app/#organization" },
               inLanguage: "it-IT",
             },
           ],
