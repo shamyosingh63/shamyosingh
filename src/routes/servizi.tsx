@@ -10,6 +10,82 @@ export const Route = createFileRoute("/servizi")({
       { property: "og:title", content: "Servizi — Shamyo Singh Copywriter" },
       { property: "og:description", content: "Copywriting, SEO, AI-assisted content, landing page ed email marketing." },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "@id": "https://shamyosingh.lovable.app/servizi/#service",
+          name: "Servizi di Copywriting e SEO — Shamyo Singh",
+          description:
+            "Servizi professionali di copywriting strategico, SEO, content marketing, landing page, email sales e AI-assisted content per brand e aziende.",
+          url: "https://shamyosingh.lovable.app/servizi",
+          provider: { "@id": "https://shamyosingh.lovable.app/#organization" },
+          areaServed: { "@type": "Country", name: "Italy" },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Servizi di copywriting e content strategy",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Copywriting",
+                  description:
+                    "Testi strategici per siti web, campagne pubblicitarie e materiali digitali che raccontano il valore del brand.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Blog & Article Writing",
+                  description:
+                    "Contenuti originali ottimizzati SEO per costruire autorevolezza e attirare il pubblico giusto.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "SEO Audits & Content Optimization",
+                  description:
+                    "Analisi contenuti, struttura e opportunità SEO per migliorare la visibilità sui motori di ricerca.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "AI-Assisted Content & Content Marketing",
+                  description:
+                    "Strumenti AI guidati dalla strategia per velocizzare ricerca, analisi e produzione mantenendo la voce umana.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Landing Pages",
+                  description:
+                    "Pagine strutturate con headline persuasive, storytelling e call to action per aumentare le conversioni.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Email Sales & Soap Opera Sequences",
+                  description:
+                    "Sequenze email narrative che accompagnano il lettore dalla curiosità alla fiducia fino all'acquisto.",
+                },
+              },
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });
