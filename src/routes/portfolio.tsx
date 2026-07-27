@@ -9,6 +9,36 @@ export const Route = createFileRoute("/portfolio")({
       { property: "og:title", content: "Portfolio — Shamyo Singh Copywriter" },
       { property: "og:description", content: "Portfolio di copywriting, SEO, content strategy, landing page e email marketing." },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": "https://shamyosingh.lovable.app/portfolio/#collection",
+          name: "Portfolio — Shamyo Singh Copywriter",
+          description:
+            "Una selezione di progetti di copywriting, SEO, content strategy, landing page e email marketing per istituzioni, brand locali, agenzie e aziende.",
+          url: "https://shamyosingh.lovable.app/portfolio",
+          isPartOf: { "@id": "https://shamyosingh.lovable.app/#website" },
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: projects.map((project, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "CreativeWork",
+                name: project.title,
+                description: project.description,
+                about: project.client,
+                genre: project.category,
+                creator: { "@id": "https://shamyosingh.lovable.app/#organization" },
+              },
+            })),
+          },
+        }),
+      },
+    ],
   }),
   component: PortfolioPage,
 });
