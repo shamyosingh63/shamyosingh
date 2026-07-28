@@ -13,6 +13,8 @@ import { Testimonials } from "@/components/Testimonials";
 import { TypingServices } from "@/components/TypingServices";
 import { Gallery } from "@/components/Gallery";
 import { VideoBand } from "@/components/VideoBand";
+import { Faq } from "@/components/Faq";
+import { Newsletter } from "@/components/Newsletter";
 import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
@@ -401,6 +403,12 @@ function HomePage() {
       {/* VIDEO BAND */}
       <VideoBand />
 
+
+      {/* FAQ */}
+      <Faq />
+
+      {/* NEWSLETTER */}
+      <Newsletter />
 
       {/* FINAL CTA */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
