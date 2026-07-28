@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 
-const faqs = [
+export const faqs = [
   {
     q: "Quanto costa un progetto di copywriting?",
     a: "Ogni progetto ha esigenze diverse: una landing page non è un piano editoriale. Dopo una prima call gratuita ti mando un preventivo chiaro, con scope, tempi e prezzo fisso — nessuna sorpresa in fattura.",

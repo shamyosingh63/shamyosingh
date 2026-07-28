@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, FileText, Search, PenLine, Layout, Mail, Sparkles, Quote } from "lucide-react";
 
 import portrait from "../assets/shamyo-main.jpg";
-import portraitBw from "../assets/shamyo-portrait-bw.png";
+import portraitBw from "../assets/shamyo-portrait-bw.webp";
 import monogram from "../assets/ss-monogram.png";
 import writerDesk from "../assets/writer-desk.jpg";
-import collage from "../assets/storytelling-collage.jpeg";
+import collage from "../assets/storytelling-collage.webp";
 const workspaceNotes = "/images/workspace-notes.jpg";
 const typewriterHands = "/images/typewriter-hands.jpg";
 const paperTexture = "/images/paper-texture.jpg";
@@ -13,7 +13,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { TypingServices } from "@/components/TypingServices";
 import { Gallery } from "@/components/Gallery";
 import { VideoBand } from "@/components/VideoBand";
-import { Faq } from "@/components/Faq";
+import { Faq, faqs } from "@/components/Faq";
 import { Newsletter } from "@/components/Newsletter";
 import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
@@ -33,6 +33,20 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: SITE_URL },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        }),
+      },
     ],
   }),
   component: HomePage,
@@ -127,7 +141,7 @@ function HomePage() {
           {/* Portrait + floating cards */}
           <div className="relative lg:col-span-5">
             <div className="tilt-card relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-[2rem] bg-card shadow-2xl">
-              <img src={portrait} alt="Ritratto di Shamyo Singh" width={800} height={1000} className="h-full w-full object-cover" />
+              <img src={portrait} alt="Shamyo Singh, copywriter e SEO specialist, ritratto professionale" width={800} height={1000} fetchPriority="high" decoding="async" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
             </div>
 

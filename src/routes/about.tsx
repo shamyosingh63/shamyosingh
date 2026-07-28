@@ -43,7 +43,7 @@ function AboutPage() {
         </div>
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pt-20 lg:grid-cols-2 lg:gap-20 lg:px-8 lg:pt-28">
           <div className="reveal tilt-card relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-card shadow-2xl">
-            <img src={portrait} alt="Ritratto di Shamyo Singh" width={1008} height={1260} className="h-full w-full object-cover" />
+            <img src={portrait} alt="Shamyo Singh, copywriter e SEO specialist, ritratto professionale" width={1008} height={1260} fetchPriority="high" decoding="async" className="h-full w-full object-cover" />
           </div>
           <div className="reveal">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">About</p>
@@ -83,7 +83,7 @@ function AboutPage() {
             </p>
           </div>
           <div className="tilt-card relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl">
-            <img src={workspaceNotes} alt="Appunti scritti a mano" width={1600} height={1200} loading="lazy" className="h-full w-full object-cover" />
+            <img src={workspaceNotes} alt="Appunti e bozze di copywriting scritti a mano" width={1600} height={1200} loading="lazy" className="h-full w-full object-cover" />
           </div>
         </div>
       </section>
