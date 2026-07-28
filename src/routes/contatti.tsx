@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useReveal } from "@/hooks/use-reveal";
+import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/contatti")({
   head: () => ({
@@ -15,6 +16,34 @@ export const Route = createFileRoute("/contatti")({
       { name: "description", content: "Contatta Shamyo Singh per un progetto di copywriting, SEO, landing page o email marketing. Rispondo entro 24 ore." },
       { property: "og:title", content: "Contatti — Shamyo Singh Copywriter" },
       { property: "og:description", content: "Contatta Shamyo Singh per copywriting, SEO, landing page ed email marketing." },
+      { property: "og:url", content: `${SITE_URL}/contatti` },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { name: "twitter:title", content: "Contatti — Shamyo Singh Copywriter" },
+      { name: "twitter:description", content: "Contatta Shamyo Singh per copywriting, SEO, landing page ed email marketing." },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contatti` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contatti — Shamyo Singh Copywriter",
+          url: `${SITE_URL}/contatti`,
+          mainEntity: {
+            "@type": "Person",
+            name: "Shamyo Singh",
+            jobTitle: "Copywriter & SEO Specialist",
+            email: "mailto:Shamyosingh63@gmail.com",
+            url: SITE_URL,
+            sameAs: [
+              "https://www.linkedin.com/in/shamyo-singh-824053304",
+              "https://www.instagram.com/_sham_y0",
+            ],
+          },
+        }),
+      },
     ],
   }),
   component: ContactPage,

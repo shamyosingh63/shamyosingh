@@ -13,7 +13,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { TypingServices } from "@/components/TypingServices";
 import { Gallery } from "@/components/Gallery";
 import { VideoBand } from "@/components/VideoBand";
-import { Faq } from "@/components/Faq";
+import { Faq, faqs } from "@/components/Faq";
 import { Newsletter } from "@/components/Newsletter";
 import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
@@ -33,6 +33,20 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: SITE_URL },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        }),
+      },
     ],
   }),
   component: HomePage,
