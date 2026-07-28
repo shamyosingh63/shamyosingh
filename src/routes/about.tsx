@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
-import portrait from "../assets/shamyo-main.jpg.asset.json";
+import portrait from "../assets/shamyo-main.jpg";
 const workspaceNotes = "/images/workspace-notes.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
@@ -43,7 +43,7 @@ function AboutPage() {
         </div>
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pt-20 lg:grid-cols-2 lg:gap-20 lg:px-8 lg:pt-28">
           <div className="reveal tilt-card relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-card shadow-2xl">
-            <img src={portrait.url} alt="Ritratto di Shamyo Singh" width={1008} height={1260} className="h-full w-full object-cover" />
+            <img src={portrait} alt="Ritratto di Shamyo Singh" width={1008} height={1260} className="h-full w-full object-cover" />
           </div>
           <div className="reveal">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">About</p>

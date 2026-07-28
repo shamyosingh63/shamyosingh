@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, FileText, Search, PenLine, Layout, Mail, Sparkles, Quote } from "lucide-react";
 
-import portrait from "../assets/shamyo-main.jpg.asset.json";
-import portraitBw from "../assets/shamyo-portrait-bw.png.asset.json";
-import monogram from "../assets/ss-monogram.png.asset.json";
-import writerDesk from "../assets/writer-desk.jpg.asset.json";
-import collage from "../assets/storytelling-collage.jpeg.asset.json";
+import portrait from "../assets/shamyo-main.jpg";
+import portraitBw from "../assets/shamyo-portrait-bw.png";
+import monogram from "../assets/ss-monogram.png";
+import writerDesk from "../assets/writer-desk.jpg";
+import collage from "../assets/storytelling-collage.jpeg";
 const workspaceNotes = "/images/workspace-notes.jpg";
 const typewriterHands = "/images/typewriter-hands.jpg";
 const paperTexture = "/images/paper-texture.jpg";
@@ -125,12 +125,12 @@ function HomePage() {
           {/* Portrait + floating cards */}
           <div className="relative lg:col-span-5">
             <div className="tilt-card relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-[2rem] bg-card shadow-2xl">
-              <img src={portrait.url} alt="Ritratto di Shamyo Singh" width={800} height={1000} className="h-full w-full object-cover" />
+              <img src={portrait} alt="Ritratto di Shamyo Singh" width={800} height={1000} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
             </div>
 
             <div className="animate-float absolute -left-4 top-8 hidden rounded-2xl border border-border/60 bg-background/90 p-3 shadow-xl backdrop-blur-md sm:block">
-              <img src={monogram.url} alt="" width={56} height={56} className="h-14 w-14 object-contain" />
+              <img src={monogram} alt="" width={56} height={56} className="h-14 w-14 object-contain" />
             </div>
 
             <div className="animate-float-slow absolute -bottom-6 -right-2 rounded-2xl border border-border/60 bg-background/95 p-5 shadow-xl backdrop-blur-md sm:-right-6">
@@ -277,7 +277,7 @@ function HomePage() {
         <div className="grid gap-6 md:grid-cols-12">
           <figure className="reveal group relative col-span-12 overflow-hidden rounded-[2rem] shadow-xl md:col-span-7">
             <img
-              src={collage.url}
+              src={collage}
               alt="Collage editoriale: copy, storytelling e bozze di scrittura"
               loading="lazy"
               decoding="async"
@@ -292,7 +292,7 @@ function HomePage() {
 
           <figure className="reveal group relative col-span-6 overflow-hidden rounded-[2rem] shadow-xl md:col-span-5">
             <img
-              src={portraitBw.url}
+              src={portraitBw}
               alt="Shamyo Singh sorridente, ritratto in bianco e nero"
               loading="lazy"
               decoding="async"
@@ -306,7 +306,7 @@ function HomePage() {
 
           <figure className="reveal group relative col-span-6 overflow-hidden rounded-[2rem] shadow-xl md:col-span-5">
             <img
-              src={writerDesk.url}
+              src={writerDesk}
               alt="Scrittore al lavoro alla scrivania con macchina da scrivere"
               loading="lazy"
               decoding="async"

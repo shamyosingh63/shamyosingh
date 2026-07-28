@@ -2,8 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import video from "../assets/writing-loop.mp4.asset.json";
-import poster from "../assets/writing-poster.jpg.asset.json";
+import video from "../assets/writing-loop.mp4";
+import poster from "../assets/writing-poster.jpg";
 
 export function VideoBand() {
   const ref = useRef<HTMLVideoElement>(null);
@@ -32,7 +32,7 @@ export function VideoBand() {
     <section className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img
-          src={poster.url}
+          src={poster}
           alt=""
           aria-hidden
           className="h-full w-full object-cover"
@@ -41,8 +41,8 @@ export function VideoBand() {
         />
         <video
           ref={ref}
-          src={video.url}
-          poster={poster.url}
+          src={video}
+          poster={poster}
           muted
           loop
           playsInline

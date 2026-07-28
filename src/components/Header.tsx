@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 
-import monogram from "../assets/ss-monogram.png.asset.json";
+import monogram from "../assets/ss-monogram.png";
 
 const leftLinks = [
   { to: "/about", label: "About" },
@@ -18,7 +18,7 @@ function MonogramLogo() {
     <Link to="/" className="group flex flex-col items-center justify-center">
       <div className="h-14 w-14 overflow-hidden rounded-full bg-background transition-transform group-hover:scale-105">
         <img
-          src={monogram.url}
+          src={monogram}
           alt="Shamyo Singh — monogramma SS"
           width={112}
           height={112}
