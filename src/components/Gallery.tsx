@@ -6,8 +6,8 @@ import handwriting from "../assets/handwriting.jpg.asset.json";
 import collage from "../assets/storytelling-collage.jpeg.asset.json";
 import bookshelf from "../assets/bookshelf.jpg.asset.json";
 import handsDetail from "../assets/hands-detail.jpg.asset.json";
-import magazinesStack from "../assets/magazines-stack.jpg";
-import workspaceNotes from "../assets/workspace-notes.jpg";
+const magazinesStack = "/images/magazines-stack.jpg";
+const workspaceNotes = "/images/workspace-notes.jpg";
 
 type Item = {
   src: string;

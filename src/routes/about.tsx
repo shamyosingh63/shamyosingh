@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
 import portrait from "../assets/shamyo-main.jpg.asset.json";
-import workspaceNotes from "../assets/workspace-notes.jpg";
+const workspaceNotes = "/images/workspace-notes.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
