@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, FileText, Search, PenLine, Layout, Mail, Sparkles, Quote } from "lucide-react";
 
 import portrait from "../assets/shamyo-main.jpg";
-import portraitBw from "../assets/shamyo-portrait-bw.png";
+import portraitBw from "../assets/shamyo-portrait-bw.webp";
 import monogram from "../assets/ss-monogram.png";
 import writerDesk from "../assets/writer-desk.jpg";
-import collage from "../assets/storytelling-collage.jpeg";
+import collage from "../assets/storytelling-collage.webp";
 const workspaceNotes = "/images/workspace-notes.jpg";
 const typewriterHands = "/images/typewriter-hands.jpg";
 const paperTexture = "/images/paper-texture.jpg";

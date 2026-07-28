@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 
 import writerDesk from "../assets/writer-desk.jpg";
 import handwriting from "../assets/handwriting.jpg";
-import collage from "../assets/storytelling-collage.jpeg";
+import collage from "../assets/storytelling-collage.webp";
 import bookshelf from "../assets/bookshelf.jpg";
 import handsDetail from "../assets/hands-detail.jpg";
 const magazinesStack = "/images/magazines-stack.jpg";
