@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote, BadgeCheck } from "lucide-react";
 
-import av1 from "../assets/avatar-1.jpg.asset.json";
-import av2 from "../assets/avatar-2.jpg.asset.json";
-import av3 from "../assets/avatar-3.jpg.asset.json";
-import av4 from "../assets/avatar-4.jpg.asset.json";
-import av5 from "../assets/avatar-5.jpg.asset.json";
-import av6 from "../assets/avatar-6.jpg.asset.json";
+import av1 from "../assets/avatar-1.jpg";
+import av2 from "../assets/avatar-2.jpg";
+import av3 from "../assets/avatar-3.jpg";
+import av4 from "../assets/avatar-4.jpg";
+import av5 from "../assets/avatar-5.jpg";
+import av6 from "../assets/avatar-6.jpg";
 
 type Testimonial = {
   name: string;
@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Giulia Ferrante",
     role: "Marketing Director — Fenice Academy",
-    avatar: av1.url,
+    avatar: av1,
     service: "Landing page + sequenza email di lancio",
     quote: [
       "Avevamo traffico ma nessuna conversione. Shamyo ha riscritto la landing e la sequenza email e in tre settimane ",
@@ -31,7 +31,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Marco Bellini",
     role: "Responsabile Comunicazione — Tecnocasa",
-    avatar: av2.url,
+    avatar: av2,
     service: "SEO audit + contenuti per ricerca locale",
     quote: [
       "Ci ha portato ordine dove c'era caos. Struttura, parole chiave, tono di voce: ",
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Sara Costanzo",
     role: "Founder — Isola del Vento",
-    avatar: av3.url,
+    avatar: av3,
     service: "Content strategy & storytelling di territorio",
     quote: [
       "Cercavo qualcuno che raccontasse la nostra isola senza cliché. Ha trovato ",
@@ -53,7 +53,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Alessandro Ruggeri",
     role: "Titolare — Ristorazione & Hospitality",
-    avatar: av4.url,
+    avatar: av4,
     service: "Copy per sito web e campagne stagionali",
     quote: [
       "Pensavo che il copy fosse un dettaglio. Mi sbagliavo: ",
@@ -64,7 +64,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Elena Marchetti",
     role: "Program Director — Terzo settore",
-    avatar: av5.url,
+    avatar: av5,
     service: "Copywriting istituzionale & contenuti SEO",
     quote: [
       "Comunicare cause sociali è delicato. Shamyo ha trovato il tono giusto: ",
@@ -75,7 +75,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Davide Ottaviani",
     role: "Co-founder — Swag Marketing",
-    avatar: av6.url,
+    avatar: av6,
     service: "Brand voice e contenuti B2B",
     quote: [
       "Lo consiglio a occhi chiusi. Non consegna testi: consegna strategia. ",

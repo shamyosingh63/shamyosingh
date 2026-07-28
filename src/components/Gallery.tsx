@@ -1,11 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
-import writerDesk from "../assets/writer-desk.jpg.asset.json";
-import handwriting from "../assets/handwriting.jpg.asset.json";
-import collage from "../assets/storytelling-collage.jpeg.asset.json";
-import bookshelf from "../assets/bookshelf.jpg.asset.json";
-import handsDetail from "../assets/hands-detail.jpg.asset.json";
+import writerDesk from "../assets/writer-desk.jpg";
+import handwriting from "../assets/handwriting.jpg";
+import collage from "../assets/storytelling-collage.jpeg";
+import bookshelf from "../assets/bookshelf.jpg";
+import handsDetail from "../assets/hands-detail.jpg";
 const magazinesStack = "/images/magazines-stack.jpg";
 const workspaceNotes = "/images/workspace-notes.jpg";
 
@@ -19,12 +19,12 @@ type Item = {
 };
 
 const items: Item[] = [
-  { src: collage.url, alt: "Collage editoriale di storytelling e copy", client: "Swag Marketing", category: "Brand voice & contenuti B2B", metric: "+50% lead qualificati", ratio: "aspect-[4/3]" },
-  { src: writerDesk.url, alt: "Scrittore alla scrivania con macchina da scrivere", client: "Isola del Vento", category: "Content strategy & storytelling", metric: "+2.8x engagement", ratio: "aspect-[3/4]" },
-  { src: handwriting.url, alt: "Mano che scrive appunti su un quaderno", client: "Fenice Academy", category: "Landing page & funnel email", metric: "+32% conversioni", ratio: "aspect-[3/2]" },
-  { src: bookshelf.url, alt: "Libreria editoriale con riviste e libri d'arte", client: "Save the Children", category: "SEO content & copywriting", metric: "+45% traffico organico", ratio: "aspect-[4/5]" },
+  { src: collage, alt: "Collage editoriale di storytelling e copy", client: "Swag Marketing", category: "Brand voice & contenuti B2B", metric: "+50% lead qualificati", ratio: "aspect-[4/3]" },
+  { src: writerDesk, alt: "Scrittore alla scrivania con macchina da scrivere", client: "Isola del Vento", category: "Content strategy & storytelling", metric: "+2.8x engagement", ratio: "aspect-[3/4]" },
+  { src: handwriting, alt: "Mano che scrive appunti su un quaderno", client: "Fenice Academy", category: "Landing page & funnel email", metric: "+32% conversioni", ratio: "aspect-[3/2]" },
+  { src: bookshelf, alt: "Libreria editoriale con riviste e libri d'arte", client: "Save the Children", category: "SEO content & copywriting", metric: "+45% traffico organico", ratio: "aspect-[4/5]" },
   { src: magazinesStack, alt: "Pila di riviste editoriali", client: "Tecnocasa", category: "SEO locale & contenuti web", metric: "+60% visibilità locale", ratio: "aspect-[4/3]" },
-  { src: handsDetail.url, alt: "Dettaglio di mani al lavoro", client: "Lega Navale", category: "Web copy & SEO", metric: "+38% traffico organico", ratio: "aspect-[1/1]" },
+  { src: handsDetail, alt: "Dettaglio di mani al lavoro", client: "Lega Navale", category: "Web copy & SEO", metric: "+38% traffico organico", ratio: "aspect-[1/1]" },
   { src: workspaceNotes, alt: "Appunti di lavoro su carta", client: "Ristorazione locale", category: "Copy sito & campagne stagionali", metric: "+41% prenotazioni dirette", ratio: "aspect-[3/2]" },
 ];
 
