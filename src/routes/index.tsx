@@ -141,7 +141,7 @@ function HomePage() {
           {/* Portrait + floating cards */}
           <div className="relative lg:col-span-5">
             <div className="tilt-card relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-[2rem] bg-card shadow-2xl">
-              <img src={portrait} alt="Ritratto di Shamyo Singh" width={800} height={1000} className="h-full w-full object-cover" />
+              <img src={portrait} alt="Shamyo Singh, copywriter e SEO specialist, ritratto professionale" width={800} height={1000} fetchPriority="high" decoding="async" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
             </div>
 

@@ -184,7 +184,7 @@ export function Testimonials() {
                       <div className="h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-1 ring-border sm:h-28 sm:w-28">
                         <img
                           src={t.avatar}
-                          alt={t.name}
+                          alt={`${t.name}, cliente di Shamyo Singh`}
                           width={512}
                           height={512}
                           loading="lazy"
