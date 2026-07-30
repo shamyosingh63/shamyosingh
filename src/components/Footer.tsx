@@ -6,6 +6,7 @@ const footerLinks = [
   { to: "/about", label: "About" },
   { to: "/servizi", label: "Servizi" },
   { to: "/portfolio", label: "Portfolio" },
+  { to: "/blog", label: "Blog" },
   { to: "/contatti", label: "Contatti" },
 ];
 
