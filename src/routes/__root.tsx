@@ -115,10 +115,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://shamyosingh.lovable.app/#organization",
+              "@id": "https://shamyosingh.vercel.app/#organization",
               name: "Shamyo Singh",
               alternateName: "Shamyo Singh Copywriter & SEO Specialist",
-              url: "https://shamyosingh.lovable.app",
+              url: "https://shamyosingh.vercel.app",
               email: "mailto:Shamyosingh63@gmail.com",
               sameAs: [
                 "https://www.linkedin.com/in/shamyo-singh-824053304",
@@ -133,10 +133,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             },
             {
               "@type": "WebSite",
-              "@id": "https://shamyosingh.lovable.app/#website",
+              "@id": "https://shamyosingh.vercel.app/#website",
               name: "Shamyo Singh — Copywriter & SEO Specialist",
-              url: "https://shamyosingh.lovable.app",
-              publisher: { "@id": "https://shamyosingh.lovable.app/#organization" },
+              url: "https://shamyosingh.vercel.app",
+              publisher: { "@id": "https://shamyosingh.vercel.app/#organization" },
               inLanguage: "it-IT",
             },
           ],
