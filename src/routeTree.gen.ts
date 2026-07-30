@@ -15,6 +15,8 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogCosaFaUnCopywriterRouteImport } from './routes/blog/cosa-fa-un-copywriter'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -46,6 +48,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogCosaFaUnCopywriterRoute = BlogCosaFaUnCopywriterRouteImport.update({
+  id: '/blog/cosa-fa-un-copywriter',
+  path: '/blog/cosa-fa-un-copywriter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +66,8 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/servizi': typeof ServiziRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/cosa-fa-un-copywriter': typeof BlogCosaFaUnCopywriterRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +76,8 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/servizi': typeof ServiziRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/cosa-fa-un-copywriter': typeof BlogCosaFaUnCopywriterRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +87,8 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/servizi': typeof ServiziRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/cosa-fa-un-copywriter': typeof BlogCosaFaUnCopywriterRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +99,18 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/servizi'
     | '/sitemap.xml'
+    | '/blog/cosa-fa-un-copywriter'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contatti' | '/portfolio' | '/servizi' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/about'
+    | '/contatti'
+    | '/portfolio'
+    | '/servizi'
+    | '/sitemap.xml'
+    | '/blog/cosa-fa-un-copywriter'
+    | '/blog'
   id:
     | '__root__'
     | '/'
@@ -91,6 +119,8 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/servizi'
     | '/sitemap.xml'
+    | '/blog/cosa-fa-un-copywriter'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,6 +130,8 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   ServiziRoute: typeof ServiziRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogCosaFaUnCopywriterRoute: typeof BlogCosaFaUnCopywriterRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -146,6 +178,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/cosa-fa-un-copywriter': {
+      id: '/blog/cosa-fa-un-copywriter'
+      path: '/blog/cosa-fa-un-copywriter'
+      fullPath: '/blog/cosa-fa-un-copywriter'
+      preLoaderRoute: typeof BlogCosaFaUnCopywriterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -156,6 +202,8 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   ServiziRoute: ServiziRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogCosaFaUnCopywriterRoute: BlogCosaFaUnCopywriterRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
