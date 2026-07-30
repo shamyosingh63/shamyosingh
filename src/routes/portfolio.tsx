@@ -24,12 +24,12 @@ export const Route = createFileRoute("/portfolio")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          "@id": "https://shamyosingh.lovable.app/portfolio/#collection",
+          "@id": "https://shamyosingh.vercel.app/portfolio/#collection",
           name: "Portfolio — Shamyo Singh Copywriter",
           description:
             "Una selezione di progetti di copywriting, SEO, content strategy, landing page e email marketing per istituzioni, brand locali, agenzie e aziende.",
-          url: "https://shamyosingh.lovable.app/portfolio",
-          isPartOf: { "@id": "https://shamyosingh.lovable.app/#website" },
+          url: "https://shamyosingh.vercel.app/portfolio",
+          isPartOf: { "@id": "https://shamyosingh.vercel.app/#website" },
           mainEntity: {
             "@type": "ItemList",
             itemListElement: projects.map((project, index) => ({
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/portfolio")({
                 description: project.description,
                 about: project.client,
                 genre: project.category,
-                creator: { "@id": "https://shamyosingh.lovable.app/#organization" },
+                creator: { "@id": "https://shamyosingh.vercel.app/#organization" },
               },
             })),
           },

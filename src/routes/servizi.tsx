@@ -25,12 +25,12 @@ export const Route = createFileRoute("/servizi")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          "@id": "https://shamyosingh.lovable.app/servizi/#service",
+          "@id": "https://shamyosingh.vercel.app/servizi/#service",
           name: "Servizi di Copywriting e SEO — Shamyo Singh",
           description:
             "Servizi professionali di copywriting strategico, SEO, content marketing, landing page, email sales e AI-assisted content per brand e aziende.",
-          url: "https://shamyosingh.lovable.app/servizi",
-          provider: { "@id": "https://shamyosingh.lovable.app/#organization" },
+          url: "https://shamyosingh.vercel.app/servizi",
+          provider: { "@id": "https://shamyosingh.vercel.app/#organization" },
           areaServed: { "@type": "Country", name: "Italy" },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
