@@ -9,6 +9,7 @@ export const Route = createFileRoute("/portfolio")({
       { name: "description", content: "Portfolio di copywriting, SEO, content strategy, landing page e email marketing per clienti come Save the Children, Tecnocasa, Fenice Academy e altri." },
       { property: "og:title", content: "Portfolio — Shamyo Singh Copywriter" },
       { property: "og:description", content: "Portfolio di copywriting, SEO, content strategy, landing page e email marketing." },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/portfolio` },
       { property: "og:image", content: OG_IMAGE_URL },
       { name: "twitter:title", content: "Portfolio — Shamyo Singh Copywriter" },

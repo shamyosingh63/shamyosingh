@@ -4,6 +4,8 @@ import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
 const URL = `${SITE_URL}/blog/cosa-fa-un-copywriter`;
+const PUBLISHED = "2026-02-10";
+const MODIFIED = "2026-08-18";
 const TITLE = "Copywriter: cosa fa davvero e quando ti serve | Guida 2026";
 const DESCRIPTION =
   "Cosa fa un copywriter: attività quotidiane, tipi di testi, differenze con il content writer, quanto costa e come scegliere il professionista giusto.";
@@ -39,6 +41,9 @@ export const Route = createFileRoute("/blog/cosa-fa-un-copywriter")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
+      { property: "article:published_time", content: PUBLISHED },
+      { property: "article:modified_time", content: MODIFIED },
+      { property: "article:author", content: "Shamyo Singh" },
       { property: "og:url", content: URL },
       { property: "og:image", content: OG_IMAGE_URL },
       { name: "twitter:title", content: TITLE },
@@ -58,7 +63,9 @@ export const Route = createFileRoute("/blog/cosa-fa-un-copywriter")({
               headline: "Copywriter: cosa fa davvero e quando ti serve",
               description: DESCRIPTION,
               inLanguage: "it-IT",
-              mainEntityOfPage: URL,
+              datePublished: PUBLISHED,
+              dateModified: MODIFIED,
+              mainEntityOfPage: { "@type": "WebPage", "@id": URL },
               image: OG_IMAGE_URL,
               author: { "@type": "Person", name: "Shamyo Singh", url: `${SITE_URL}/about` },
               publisher: { "@id": `${SITE_URL}/#organization` },
@@ -99,7 +106,15 @@ function ArticlePage() {
         <Link to="/blog" className="transition-colors hover:text-foreground">Blog</Link>
       </nav>
 
-      <h1 className="mt-6 font-heading text-4xl leading-[1.05] text-foreground sm:text-5xl">
+      <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        Di <Link to="/about" className="underline underline-offset-4 transition-colors hover:text-foreground">Shamyo Singh</Link>
+        {" · "}
+        <time dateTime={PUBLISHED}>10 febbraio 2026</time>
+        {" · aggiornato il "}
+        <time dateTime={MODIFIED}>18 agosto 2026</time>
+      </p>
+
+      <h1 className="mt-4 font-heading text-4xl leading-[1.05] text-foreground sm:text-5xl">
         Copywriter: cosa fa davvero e <em className="not-italic text-brand">quando ti serve</em>
       </h1>
       <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
