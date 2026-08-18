@@ -25,14 +25,14 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
       { property: "og:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { property: "og:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
-      { property: "og:url", content: SITE_URL },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: OG_IMAGE_URL },
       { name: "twitter:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { name: "twitter:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
       { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [
-      { rel: "canonical", href: SITE_URL },
+      { rel: "canonical", href: `${SITE_URL}/` },
     ],
     scripts: [
       {
@@ -446,6 +446,16 @@ function HomePage() {
               </p>
               <p className="mt-5 text-sm text-primary-foreground/60">
                 Posti limitati ogni mese — lavoro su pochi progetti alla volta.
+              </p>
+              <p className="mt-5 text-sm text-primary-foreground/70">
+                Vuoi prima capire come lavoro? Leggi le{" "}
+                <Link to="/blog" className="underline underline-offset-4 hover:text-brand">
+                  guide di copywriting e SEO sul blog
+                </Link>{" "}
+                oppure scopri i{" "}
+                <Link to="/servizi" className="underline underline-offset-4 hover:text-brand">
+                  servizi di copywriting
+                </Link>.
               </p>
             </div>
             <Link to="/contatti" className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl active:scale-95">
