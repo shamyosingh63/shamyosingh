@@ -25,14 +25,14 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
       { property: "og:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { property: "og:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
-      { property: "og:url", content: SITE_URL },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: OG_IMAGE_URL },
       { name: "twitter:title", content: "Shamyo Singh — Copywriter & SEO Specialist" },
       { name: "twitter:description", content: "Copywriter e SEO specialist: creo contenuti, landing page, email e strategie SEO che trasformano idee in clienti e fanno crescere brand e aziende." },
       { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [
-      { rel: "canonical", href: SITE_URL },
+      { rel: "canonical", href: `${SITE_URL}/` },
     ],
     scripts: [
       {
