@@ -200,7 +200,9 @@ function RootComponent() {
           <Outlet />
         </main>
         <Footer />
+        <ShamyoAIWidget />
       </div>
+
     </QueryClientProvider>
   );
 }
