@@ -1,14 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
+const opt = (max: number) => z.string().trim().max(max).optional().default("");
+
 const LeadSchema = z.object({
-  business: z.string().min(1).max(80),
-  need: z.string().min(1).max(80),
-  hasWebsite: z.string().min(1).max(120),
-  goal: z.string().min(1).max(600),
-  timing: z.string().min(1).max(80),
-  name: z.string().min(1).max(80),
-  email: z.string().email().max(160),
+  kind: z.enum(["quote", "copy_check", "chat"]),
+  name: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(160),
+  website: opt(200),
+  company: opt(120),
+  service: opt(80),
+  package: opt(40),
+  description: opt(2000),
+  goal: opt(600),
+  language: opt(20),
+  preferredDate: opt(20),
+  preferredTime: opt(10),
 });
 
 const hits = new Map<string, { count: number; resetAt: number }>();
@@ -23,6 +30,12 @@ function rateLimited(key: string): boolean {
   entry.count += 1;
   return entry.count > 5;
 }
+
+const KIND_LABEL = {
+  quote: "Richiesta di preventivo",
+  copy_check: "Richiesta 15-Minute Copy Check (da confermare)",
+  chat: "Richiesta da Shamyo AI",
+} as const;
 
 export const Route = createFileRoute("/api/lead")({
   server: {
@@ -46,48 +59,46 @@ export const Route = createFileRoute("/api/lead")({
         const to = process.env["LEAD_EMAIL"];
         const resendKey = process.env["RESEND_API_KEY"];
 
-        const text = [
-          "Nuova richiesta di progetto da Shamyo AI",
-          "",
-          `Attività: ${lead.business}`,
-          `Servizio: ${lead.need}`,
-          `Sito web: ${lead.hasWebsite}`,
-          `Obiettivo: ${lead.goal}`,
-          `Tempistica: ${lead.timing}`,
-          `Nome: ${lead.name}`,
-          `Email: ${lead.email}`,
-        ].join("\n");
+        const rows: [string, string][] = [
+          ["Nome", lead.name],
+          ["Email", lead.email],
+          ["Sito web", lead.website],
+          ["Azienda / Brand", lead.company],
+          ["Servizio", lead.service],
+          ["Pacchetto", lead.package],
+          ["Descrizione", lead.description],
+          ["Obiettivo", lead.goal],
+          ["Lingua preferita", lead.language],
+          ["Data preferita", lead.preferredDate],
+          ["Ora preferita", lead.preferredTime],
+        ];
+        const text = [KIND_LABEL[lead.kind], "", ...rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`)].join("\n");
 
         if (!resendKey || !to) {
-          // Email provider not configured yet: keep the lead in server logs so
-          // nothing is lost, and confirm to the visitor.
-          console.warn("[shamyo-ai] lead received (email provider not configured)\n" + text);
+          console.warn("[lead] received (email provider not configured)\n" + text);
           return Response.json({ ok: true, delivered: false });
         }
 
         try {
           const res = await fetch("https://api.resend.com/emails", {
             method: "POST",
-            headers: {
-              authorization: `Bearer ${resendKey}`,
-              "content-type": "application/json",
-            },
+            headers: { authorization: `Bearer ${resendKey}`, "content-type": "application/json" },
             body: JSON.stringify({
-              from: process.env["LEAD_FROM_EMAIL"] ?? "Shamyo AI <onboarding@resend.dev>",
+              from: process.env["LEAD_FROM_EMAIL"] ?? "Shamyo Singh <onboarding@resend.dev>",
               to: [to],
               reply_to: lead.email,
-              subject: `Nuovo progetto: ${lead.need} — ${lead.name}`,
+              subject: `${KIND_LABEL[lead.kind]} — ${lead.name}`,
               text,
             }),
           });
           if (!res.ok) {
-            console.error("[shamyo-ai] resend error", res.status, await res.text().catch(() => ""));
-            console.warn("[shamyo-ai] lead fallback log\n" + text);
+            console.error("[lead] resend error", res.status, await res.text().catch(() => ""));
+            console.warn("[lead] fallback log\n" + text);
             return Response.json({ ok: true, delivered: false });
           }
         } catch (error) {
-          console.error("[shamyo-ai] lead send failed", error);
-          console.warn("[shamyo-ai] lead fallback log\n" + text);
+          console.error("[lead] send failed", error);
+          console.warn("[lead] fallback log\n" + text);
           return Response.json({ ok: true, delivered: false });
         }
 
