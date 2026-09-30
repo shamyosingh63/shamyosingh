@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServiziRouteImport } from './routes/servizi'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PacchettiRouteImport } from './routes/pacchetti'
+import { Route as CopyCheckRouteImport } from './routes/copy-check'
 import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -39,6 +40,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
 const PacchettiRoute = PacchettiRouteImport.update({
   id: '/pacchetti',
   path: '/pacchetti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopyCheckRoute = CopyCheckRouteImport.update({
+  id: '/copy-check',
+  path: '/copy-check',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContattiRoute = ContattiRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contatti': typeof ContattiRoute
+  '/copy-check': typeof CopyCheckRoute
   '/pacchetti': typeof PacchettiRoute
   '/portfolio': typeof PortfolioRoute
   '/servizi': typeof ServiziRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contatti': typeof ContattiRoute
+  '/copy-check': typeof CopyCheckRoute
   '/pacchetti': typeof PacchettiRoute
   '/portfolio': typeof PortfolioRoute
   '/servizi': typeof ServiziRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contatti': typeof ContattiRoute
+  '/copy-check': typeof CopyCheckRoute
   '/pacchetti': typeof PacchettiRoute
   '/portfolio': typeof PortfolioRoute
   '/servizi': typeof ServiziRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contatti'
+    | '/copy-check'
     | '/pacchetti'
     | '/portfolio'
     | '/servizi'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contatti'
+    | '/copy-check'
     | '/pacchetti'
     | '/portfolio'
     | '/servizi'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contatti'
+    | '/copy-check'
     | '/pacchetti'
     | '/portfolio'
     | '/servizi'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContattiRoute: typeof ContattiRoute
+  CopyCheckRoute: typeof CopyCheckRoute
   PacchettiRoute: typeof PacchettiRoute
   PortfolioRoute: typeof PortfolioRoute
   ServiziRoute: typeof ServiziRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/pacchetti'
       fullPath: '/pacchetti'
       preLoaderRoute: typeof PacchettiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copy-check': {
+      id: '/copy-check'
+      path: '/copy-check'
+      fullPath: '/copy-check'
+      preLoaderRoute: typeof CopyCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contatti': {
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContattiRoute: ContattiRoute,
+  CopyCheckRoute: CopyCheckRoute,
   PacchettiRoute: PacchettiRoute,
   PortfolioRoute: PortfolioRoute,
   ServiziRoute: ServiziRoute,
