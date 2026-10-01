@@ -3,6 +3,15 @@ import { ArrowRight, FileText, Search, PenLine, Layout, Mail, Sparkles } from "l
 import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 
+const PACKAGE_FOR: Record<string, { label: string; hash: string }> = {
+  "Copywriting": { label: "START / GROW", hash: "start" },
+  "Blog & Article Writing": { label: "AUTHORITY", hash: "authority" },
+  "SEO Audits & Content Optimization": { label: "SEO — Get Found", hash: "seo" },
+  "AI-Assisted Content & Content Marketing": { label: "AUTHORITY", hash: "authority" },
+  "Landing Pages": { label: "GROW", hash: "grow" },
+  "Email Sales & Soap Opera Sequences": { label: "AUTHORITY", hash: "authority" },
+};
+
 export const Route = createFileRoute("/servizi")({
   head: () => ({
     meta: [
@@ -178,6 +187,11 @@ function ServicesPage() {
                   </li>
                 ))}
               </ul>
+              {PACKAGE_FOR[service.title] ? (
+                <Link to="/pacchetti" hash={PACKAGE_FOR[service.title].hash} className="relative mt-6 text-xs font-semibold uppercase tracking-[0.12em] text-brand hover:underline">
+                  Pacchetto consigliato: {PACKAGE_FOR[service.title].label} →
+                </Link>
+              ) : null}
             </article>
           ))}
         </div>
