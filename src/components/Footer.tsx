@@ -1,17 +1,25 @@
 import { Link } from "@tanstack/react-router";
 
+import { useCopy } from "@/lib/i18n";
 import monogram from "../assets/ss-monogram.png";
+
+const FOOTER = {
+  it: { tagline: "{c.tagline}", rights: "{c.rights}", services: "Servizi", contact: "Contatti" },
+  en: { tagline: "Copywriter & content strategist. Words that tell, persuade and sell.", rights: "All rights reserved.", services: "Services", contact: "Contact" },
+};
 
 const footerLinks = [
   { to: "/about", label: "About" },
-  { to: "/servizi", label: "Servizi" },
+  { to: "/servizi", label: "services" },
+  { to: "/pacchetti", label: "Packages" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/blog", label: "Blog" },
-  { to: "/contatti", label: "Contatti" },
+  { to: "/contatti", label: "contact" },
 ];
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const c = useCopy(FOOTER);
 
   return (
     <footer className="relative border-t border-border/50 bg-background">
@@ -24,7 +32,7 @@ export function Footer() {
                 Shamyo Singh
               </Link>
               <p className="mt-1 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                Copywriter & content strategist. Parole che raccontano, convincono e vendono.
+                {c.tagline}
               </p>
             </div>
           </div>
@@ -35,13 +43,13 @@ export function Footer() {
                 to={link.to}
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                {link.label}
+                {link.label === "services" ? c.services : link.label === "contact" ? c.contact : link.label}
               </Link>
             ))}
           </nav>
         </div>
         <div className="mt-12 flex flex-col gap-4 border-t border-border/50 pt-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p>© {year} Shamyo Singh. Tutti i diritti riservati.</p>
+          <p>© {year} Shamyo Singh. {c.rights}</p>
           <div className="flex gap-6">
             <a href="https://www.linkedin.com/in/shamyo-singh-824053304" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">LinkedIn</a>
             <a href="https://www.instagram.com/_sham_y0/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Instagram</a>

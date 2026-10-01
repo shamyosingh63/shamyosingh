@@ -1,17 +1,24 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLang } from "@/lib/i18n";
+
 import monogram from "../assets/ss-monogram.png";
 
-const leftLinks = [
+const leftLinks: NavLink[] = [
   { to: "/about", label: "About" },
-  { to: "/servizi", label: "Servizi" },
+  { to: "/servizi", label: "Servizi", en: "Services" },
+  { to: "/pacchetti", label: "Packages" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/blog", label: "Blog" },
 ];
 
-const rightLinks = [
-  { to: "/contatti", label: "Contatti" },
+type NavLink = { to: string; label: string; en?: string };
+const label = (l: NavLink, lang: string) => (lang === "en" && l.en ? l.en : l.label);
+
+const rightLinks: NavLink[] = [
+  { to: "/contatti", label: "Contatti", en: "Contact" },
 ];
 
 function MonogramLogo() {
@@ -34,6 +41,7 @@ function MonogramLogo() {
 }
 
 export function Header() {
+  const { lang } = useLang();
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
@@ -45,7 +53,7 @@ export function Header() {
               activeProps={{ className: "text-foreground" }}
               className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              {link.label}
+              {label(link, lang)}
             </Link>
           ))}
         </nav>
@@ -62,9 +70,10 @@ export function Header() {
               activeProps={{ className: "text-foreground" }}
               className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              {link.label}
+              {label(link, lang)}
             </Link>
           ))}
+          <LanguageSwitcher />
           <Link
             to="/contatti"
             className="rounded-full bg-brand px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-lg shadow-brand/20 transition-all hover:-translate-y-0.5 hover:opacity-95"
@@ -80,6 +89,7 @@ export function Header() {
 }
 
 function MobileMenu() {
+  const { lang } = useLang();
   const [open, setOpen] = useState(false);
 
   return (
@@ -109,6 +119,7 @@ function MobileMenu() {
       {open && (
         <div className="absolute inset-x-0 top-[81px] border-b border-border bg-background px-6 py-6 shadow-sm">
           <nav className="flex flex-col gap-4">
+            <LanguageSwitcher className="text-sm" />
             {[...leftLinks, ...rightLinks].map((link) => (
               <Link
                 key={link.to}
@@ -116,7 +127,7 @@ function MobileMenu() {
                 onClick={() => setOpen(false)}
                 className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                {link.label}
+                {label(link, lang)}
               </Link>
             ))}
             <Link

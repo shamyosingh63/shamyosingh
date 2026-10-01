@@ -178,6 +178,11 @@ function ServicesPage() {
                   </li>
                 ))}
               </ul>
+              {PACKAGE_FOR[service.title] ? (
+                <Link to="/pacchetti" hash={PACKAGE_FOR[service.title].hash} className="relative mt-6 text-xs font-semibold uppercase tracking-[0.12em] text-brand hover:underline">
+                  Pacchetto consigliato: {PACKAGE_FOR[service.title].label} →
+                </Link>
+              ) : null}
             </article>
           ))}
         </div>
