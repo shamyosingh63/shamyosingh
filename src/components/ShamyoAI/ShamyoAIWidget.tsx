@@ -120,7 +120,7 @@ export function ShamyoAIWidget() {
           const rec = buildRecommendation(lang, answers.current);
           push({ role: "assistant", content: rec.content, links: rec.links });
           setActions(followUpActions(lang));
-          trackChatEvent("chatbot_recommendation");
+          trackChatEvent("chatbot_lead_started");
         }
         return;
       }
