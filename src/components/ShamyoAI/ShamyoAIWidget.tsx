@@ -105,6 +105,10 @@ export function ShamyoAIWidget() {
 
   const handleAction = useCallback(
     (action: QuickAction) => {
+      if (!(qStep !== null && action.value) && !action.startQualify && !action.reply) {
+        sendTextRef.current(action.say ?? action.label);
+        return;
+      }
       push({ role: "user", content: action.say ?? action.label });
       if (qStep !== null && action.value) {
         answers.current[qStep] = action.value;
@@ -130,15 +134,8 @@ export function ShamyoAIWidget() {
         setActions(followUpActions(lang));
         return;
       }
-      const userMessage: ChatMessageData = { id: nextId(), role: "user", content: action.say ?? action.label };
-      setMessages((prev) => {
-        const history = [...prev.slice(0, -1), userMessage];
-        void askAI(history);
-        return history;
-      });
-      setActions(followUpActions(lang));
     },
-    [askAI, askQuestion, lang, push, qStep],
+    [askQuestion, lang, push, qStep],
   );
 
   const sendText = (text: string) => {
@@ -152,6 +149,9 @@ export function ShamyoAIWidget() {
     setActions(followUpActions(lang));
     void askAI(history);
   };
+
+  const sendTextRef = useRef(sendText);
+  sendTextRef.current = sendText;
 
   const reset = (nextLang: Lang = lang) => {
     setMessages([]);
