@@ -1,3 +1,4 @@
+import { PACKAGES } from "./packages";
 /**
  * Knowledge base di Shamyo AI.
  *
@@ -110,7 +111,6 @@ export const blogPosts = [
   { title: "Copywriter: cosa fa davvero e quando ti serve", url: "/blog/cosa-fa-un-copywriter" },
 ];
 
-import { PACKAGES } from "./packages";
 
 export function buildKnowledgeContext(): string {
   return [
