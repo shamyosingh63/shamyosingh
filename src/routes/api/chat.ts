@@ -9,6 +9,7 @@ const RATE_LIMIT_MAX = 20;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 
 const BodySchema = z.object({
+  lang: z.enum(["it", "en"]).optional(),
   messages: z
     .array(
       z.object({
@@ -89,7 +90,7 @@ export const Route = createFileRoute("/api/chat")({
             },
             body: JSON.stringify({
               model: "openai/gpt-5.6-sol",
-              instructions: SYSTEM_PROMPT,
+              instructions: `${SYSTEM_PROMPT}\n\nThe site language currently selected is ${parsed.lang === "en" ? "English" : "Italian"}: reply in that language unless the user writes in another one.`,
               input,
               stream: true,
             }),
