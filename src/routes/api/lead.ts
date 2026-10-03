@@ -56,7 +56,7 @@ export const Route = createFileRoute("/api/lead")({
           return Response.json({ error: "invalid_request" }, { status: 400 });
         }
 
-        const to = process.env["LEAD_EMAIL"]?.trim();
+        const to = (process.env["LEAD_EMAIL"]?.trim() || "shamyosingh63@gmail.com").toLowerCase();
         const resendKey = process.env["RESEND_API_KEY"]?.trim();
 
         const rows: [string, string][] = [
@@ -78,7 +78,7 @@ export const Route = createFileRoute("/api/lead")({
           console.error(
             `[lead] NOT SENT: missing env (RESEND_API_KEY=${!!resendKey}, LEAD_EMAIL=${!!to})\n` + text,
           );
-          return Response.json({ ok: false, error: "email_not_configured" }, { status: 503 });
+          return Response.json({ ok: false, error: "email_not_configured", message: "RESEND_API_KEY non configurata sul server." }, { status: 503 });
         }
 
         try {
@@ -96,8 +96,15 @@ export const Route = createFileRoute("/api/lead")({
           const body = await res.text().catch(() => "");
           if (!res.ok) {
             console.error(`[lead] Resend error ${res.status}: ${body}\n` + text);
+            let message = `Resend ha rifiutato l'invio (${res.status})`;
+            try {
+              const j = JSON.parse(body) as { message?: string };
+              if (j.message) message += `: ${j.message}`;
+            } catch { /* ignore */ }
+            if (res.status === 403) message += " — Con il mittente onboarding@resend.dev puoi inviare solo all'email del tuo account Resend, oppure verifica un dominio e imposta LEAD_FROM_EMAIL.";
+            if (res.status === 401) message += " — RESEND_API_KEY non valida.";
             return Response.json(
-              { ok: false, error: "email_provider_error", status: res.status, detail: body.slice(0, 300) },
+              { ok: false, error: "email_provider_error", status: res.status, message },
               { status: 502 },
             );
           }
