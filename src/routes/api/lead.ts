@@ -56,8 +56,8 @@ export const Route = createFileRoute("/api/lead")({
           return Response.json({ error: "invalid_request" }, { status: 400 });
         }
 
-        const to = process.env["LEAD_EMAIL"];
-        const resendKey = process.env["RESEND_API_KEY"];
+        const to = process.env["LEAD_EMAIL"]?.trim();
+        const resendKey = process.env["RESEND_API_KEY"]?.trim();
 
         const rows: [string, string][] = [
           ["Nome", lead.name],
@@ -75,8 +75,10 @@ export const Route = createFileRoute("/api/lead")({
         const text = [KIND_LABEL[lead.kind], "", ...rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`)].join("\n");
 
         if (!resendKey || !to) {
-          console.warn("[lead] received (email provider not configured)\n" + text);
-          return Response.json({ ok: true, delivered: false });
+          console.error(
+            `[lead] NOT SENT: missing env (RESEND_API_KEY=${!!resendKey}, LEAD_EMAIL=${!!to})\n` + text,
+          );
+          return Response.json({ ok: false, error: "email_not_configured" }, { status: 503 });
         }
 
         try {
@@ -84,26 +86,35 @@ export const Route = createFileRoute("/api/lead")({
             method: "POST",
             headers: { authorization: `Bearer ${resendKey}`, "content-type": "application/json" },
             body: JSON.stringify({
-              from: process.env["LEAD_FROM_EMAIL"] ?? "Shamyo Singh <onboarding@resend.dev>",
-              to: [to],
+              from: process.env["LEAD_FROM_EMAIL"]?.trim() || "Shamyo Singh <onboarding@resend.dev>",
+              to: to.split(",").map((s) => s.trim()).filter(Boolean),
               reply_to: lead.email,
               subject: `${KIND_LABEL[lead.kind]} — ${lead.name}`,
               text,
             }),
           });
+          const body = await res.text().catch(() => "");
           if (!res.ok) {
-            console.error("[lead] resend error", res.status, await res.text().catch(() => ""));
-            console.warn("[lead] fallback log\n" + text);
-            return Response.json({ ok: true, delivered: false });
+            console.error(`[lead] Resend error ${res.status}: ${body}\n` + text);
+            return Response.json(
+              { ok: false, error: "email_provider_error", status: res.status, detail: body.slice(0, 300) },
+              { status: 502 },
+            );
           }
+          console.log(`[lead] sent via Resend: ${body}`);
         } catch (error) {
-          console.error("[lead] send failed", error);
-          console.warn("[lead] fallback log\n" + text);
-          return Response.json({ ok: true, delivered: false });
+          console.error("[lead] send failed", error, "\n" + text);
+          return Response.json({ ok: false, error: "email_send_failed" }, { status: 502 });
         }
 
         return Response.json({ ok: true, delivered: true });
       },
+      // Diagnostica: dice solo se le variabili sono presenti, senza mostrarne i valori.
+      GET: async () =>
+        Response.json({
+          resendKeyConfigured: !!process.env["RESEND_API_KEY"]?.trim(),
+          leadEmailConfigured: !!process.env["LEAD_EMAIL"]?.trim(),
+        }),
     },
   },
 });
