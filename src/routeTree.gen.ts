@@ -9,47 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as ContattiRouteImport } from './routes/contatti'
-import { Route as CopyCheckRouteImport } from './routes/copy-check'
-import { Route as PacchettiRouteImport } from './routes/pacchetti'
-import { Route as PortfolioRouteImport } from './routes/portfolio'
-import { Route as ServiziRouteImport } from './routes/servizi'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ApiChatRouteImport } from './routes/api/chat'
-import { Route as ApiLeadRouteImport } from './routes/api/lead'
+import { Route as ServiziRouteImport } from './routes/servizi'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as PacchettiRouteImport } from './routes/pacchetti'
+import { Route as CopyCheckRouteImport } from './routes/copy-check'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogCosaFaUnCopywriterRouteImport } from './routes/blog/cosa-fa-un-copywriter'
+import { Route as ApiLeadRouteImport } from './routes/api/lead'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContattiRoute = ContattiRouteImport.update({
-  id: '/contatti',
-  path: '/contatti',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CopyCheckRoute = CopyCheckRouteImport.update({
-  id: '/copy-check',
-  path: '/copy-check',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PacchettiRoute = PacchettiRouteImport.update({
-  id: '/pacchetti',
-  path: '/pacchetti',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PortfolioRoute = PortfolioRouteImport.update({
-  id: '/portfolio',
-  path: '/portfolio',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiziRoute = ServiziRouteImport.update({
@@ -57,19 +32,34 @@ const ServiziRoute = ServiziRouteImport.update({
   path: '/servizi',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiChatRoute = ApiChatRouteImport.update({
-  id: '/api/chat',
-  path: '/api/chat',
+const PacchettiRoute = PacchettiRouteImport.update({
+  id: '/pacchetti',
+  path: '/pacchetti',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiLeadRoute = ApiLeadRouteImport.update({
-  id: '/api/lead',
-  path: '/api/lead',
+const CopyCheckRoute = CopyCheckRouteImport.update({
+  id: '/copy-check',
+  path: '/copy-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -80,6 +70,16 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
 const BlogCosaFaUnCopywriterRoute = BlogCosaFaUnCopywriterRouteImport.update({
   id: '/blog/cosa-fa-un-copywriter',
   path: '/blog/cosa-fa-un-copywriter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiLeadRoute = ApiLeadRouteImport.update({
+  id: '/api/lead',
+  path: '/api/lead',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -188,46 +188,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contatti': {
-      id: '/contatti'
-      path: '/contatti'
-      fullPath: '/contatti'
-      preLoaderRoute: typeof ContattiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/copy-check': {
-      id: '/copy-check'
-      path: '/copy-check'
-      fullPath: '/copy-check'
-      preLoaderRoute: typeof CopyCheckRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pacchetti': {
-      id: '/pacchetti'
-      path: '/pacchetti'
-      fullPath: '/pacchetti'
-      preLoaderRoute: typeof PacchettiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portfolio': {
-      id: '/portfolio'
-      path: '/portfolio'
-      fullPath: '/portfolio'
-      preLoaderRoute: typeof PortfolioRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/servizi': {
@@ -237,25 +202,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiziRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/chat': {
-      id: '/api/chat'
-      path: '/api/chat'
-      fullPath: '/api/chat'
-      preLoaderRoute: typeof ApiChatRouteImport
+    '/pacchetti': {
+      id: '/pacchetti'
+      path: '/pacchetti'
+      fullPath: '/pacchetti'
+      preLoaderRoute: typeof PacchettiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/lead': {
-      id: '/api/lead'
-      path: '/api/lead'
-      fullPath: '/api/lead'
-      preLoaderRoute: typeof ApiLeadRouteImport
+    '/copy-check': {
+      id: '/copy-check'
+      path: '/copy-check'
+      fullPath: '/copy-check'
+      preLoaderRoute: typeof CopyCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -270,6 +256,20 @@ declare module '@tanstack/react-router' {
       path: '/blog/cosa-fa-un-copywriter'
       fullPath: '/blog/cosa-fa-un-copywriter'
       preLoaderRoute: typeof BlogCosaFaUnCopywriterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/lead': {
+      id: '/api/lead'
+      path: '/api/lead'
+      fullPath: '/api/lead'
+      preLoaderRoute: typeof ApiLeadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
