@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { useReveal } from "@/hooks/use-reveal";
 import { SITE_URL, OG_IMAGE_URL } from "@/lib/seo";
 import { useCopy, useLang } from "@/lib/i18n";
-import { submitLead } from "@/lib/submitLead";
+import { submitLeadDetailed } from "@/lib/submitLead";
 import { PACKAGES } from "@/data/packages";
 
 const searchSchema = z.object({
@@ -96,18 +96,20 @@ function ContactPage() {
   const { lang } = useLang();
   const { package: initialPackage } = Route.useSearch();
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [errorDetail, setErrorDetail] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const d = new FormData(e.currentTarget);
     const g = (k: string) => String(d.get(k) ?? "");
     setState("sending");
-    const ok = await submitLead({
+    const res = await submitLeadDetailed({
       kind: "quote",
       name: g("name"), email: g("email"), website: g("website"), company: g("company"),
       service: g("service"), package: g("package"), description: g("description"), goal: g("goal"), language: g("language"),
     });
-    setState(ok ? "done" : "error");
+    setErrorDetail(res.ok ? "" : res.error);
+    setState(res.ok ? "done" : "error");
   };
 
   return (
@@ -166,7 +168,12 @@ function ContactPage() {
                     <option value="English">English</option>
                   </select>
                 </div>
-                {state === "error" ? <p role="alert" className="text-sm text-destructive sm:col-span-2">{c.error}</p> : null}
+                {state === "error" ? (
+                  <div role="alert" className="text-sm text-destructive sm:col-span-2">
+                    <p>{c.error}</p>
+                    {errorDetail ? <p className="mt-1 break-words text-xs opacity-80">{errorDetail}</p> : null}
+                  </div>
+                ) : null}
                 <Button type="submit" disabled={state === "sending"} className="w-full rounded-full bg-brand py-6 text-sm font-semibold uppercase tracking-[0.1em] text-brand-foreground shadow-xl shadow-brand/20 hover:opacity-90 sm:col-span-2">
                   {state === "sending" ? c.sending : c.submit}
                 </Button>
